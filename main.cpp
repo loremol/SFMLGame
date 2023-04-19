@@ -3,21 +3,27 @@
 #include "GameTile.h"
 #include "Player.h"
 
-
 // 1. User interaction
 // 2. Update game state
 // 3. Draw to the screen
 
 int main() {
+#if _WIN32
+    std::string slash = R"(\)";
+#endif
+#if (__linux__)
+    std::string slash = "/";
+#endif
+
     sf::Vector2i        windowResolution(512,512);
     sf::Vector2i        backgroundTileResolution(64,64);
     sf::Vector2i        playerSpriteResolution(64,64);
     std::string         windowName("Game");
-    std::string         resourcesPath(R"(C:\Users\Lorenzo\Codice\C++\SFMLTest\res\)");
+    std::string         resourcesPath(R"(C:\Users\Lorenzo\Codice\C++\SFMLGame\res\)");
 
     sf::RenderWindow    win(sf::VideoMode(windowResolution.x,windowResolution.y), windowName);
-    GameWorld           gameWorld = GameWorld(backgroundTileResolution, windowResolution);
-    Player              player(resourcesPath + R"(sprites\tile\frames\skelet_idle_anim_f0.png)", playerSpriteResolution);
+    GameWorld           gameWorld = GameWorld(backgroundTileResolution, windowResolution, resourcesPath);
+    Player              player(resourcesPath + "sprite" + slash + "enemy" + slash + "skelet_idle_anim_f0.png", playerSpriteResolution);
 
     // Start game loop
     while (win.isOpen())

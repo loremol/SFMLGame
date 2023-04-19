@@ -10,7 +10,7 @@
 
 class GameWorld {
 public:
-    // Matrix of GameTile pointers
+// Matrix of GameTile pointers
     std::vector<std::vector<GameTile *>> tiles;
 
     // Getter for gridLength
@@ -18,10 +18,12 @@ public:
         return gridLength;
     }
 
-    GameWorld(sf::Vector2i backgroundTileResolution, sf::Vector2i windowResolution);
+    // FIXME make gridlength dependant on the map
+    GameWorld(sf::Vector2i backgroundTileResolution, sf::Vector2i windowResolution, const std::string& resourcePath);
 
 private:
     int gridLength;
+    std::string resourcePath;
 };
 
 #endif //SFMLGAME_GAMEWORLD_H

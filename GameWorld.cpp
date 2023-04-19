@@ -3,10 +3,16 @@
 //
 
 #include "GameWorld.h"
+#if _WIN32
+    std::string slash = R"(\)";
+#endif
+#if (__linux__)
+    std::string slash = "/";
+#endif
 
-GameWorld::GameWorld(sf::Vector2i backgroundTileResolution, sf::Vector2i windowResolution) : gridLength(windowResolution.x / backgroundTileResolution.x) {
+GameWorld::GameWorld(sf::Vector2i backgroundTileResolution, sf::Vector2i windowResolution, const std::string& resourcePath) : gridLength(windowResolution.x / backgroundTileResolution.x) {
     tiles.clear();
-    std::string tilePath = R"(C:\Users\Lorenzo\Codice\C++\SFMLTest\res\sprites\tile\frames\)";
+    std::string tilePath = resourcePath + "sprite" + slash + "tile" + slash;
     std::vector<GameTile *> row;
 
     for (int i = 0; i < gridLength; i++){
