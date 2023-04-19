@@ -4,8 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 
-#ifndef SFMLTEST_GAMETILE_H
-#define SFMLTEST_GAMETILE_H
+#ifndef SFMLGAME_GAMETILE_H
+#define SFMLGAME_GAMETILE_H
 
 class GameTile {
 public:
@@ -26,4 +26,4 @@ public:
     sf::Sprite sprite;
 };
 
-#endif //SFMLTEST_GAMETILE_H
+#endif //SFMLGAME_GAMETILE_H

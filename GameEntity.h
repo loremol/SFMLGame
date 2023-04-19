@@ -2,8 +2,8 @@
 // Created by Lorenzo on 19/04/2023.
 //
 
-#ifndef SFMLTEST_GAMEENTITY_H
-#define SFMLTEST_GAMEENTITY_H
+#ifndef SFMLGAME_GAMEENTITY_H
+#define SFMLGAME_GAMEENTITY_H
 #include <SFML/Graphics.hpp>
 
 class GameEntity {
@@ -17,4 +17,4 @@ protected:
 };
 
 
-#endif //SFMLTEST_GAMEENTITY_H
+#endif //SFMLGAME_GAMEENTITY_H

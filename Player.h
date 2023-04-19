@@ -2,8 +2,8 @@
 // Created by Lorenzo on 19/04/2023.
 //
 
-#ifndef SFMLTEST_PLAYER_H
-#define SFMLTEST_PLAYER_H
+#ifndef SFMLGAME_PLAYER_H
+#define SFMLGAME_PLAYER_H
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
 
@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif //SFMLTEST_PLAYER_H
+#endif //SFMLGAME_PLAYER_H

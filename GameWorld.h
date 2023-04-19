@@ -5,8 +5,8 @@
 #include "GameTile.h"
 #include <vector>
 
-#ifndef SFMLTEST_GAMEWORLD_H
-#define SFMLTEST_GAMEWORLD_H
+#ifndef SFMLGAME_GAMEWORLD_H
+#define SFMLGAME_GAMEWORLD_H
 
 class GameWorld {
 public:
@@ -24,4 +24,4 @@ private:
     int gridLength;
 };
 
-#endif //SFMLTEST_GAMEWORLD_H
+#endif //SFMLGAME_GAMEWORLD_H
