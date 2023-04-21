@@ -1,7 +1,7 @@
 # Sviluppo C++
 Lorenzo
-✔️ Menu iniziale
-✔️ Gestione stati di gioco
+✔ Menu iniziale
+✔ Gestione stati di gioco
 - Visuale che si sposta con il personaggio
 - Muri passabili muri non passabili, porte che ti portano da altre parti della mappa
 - Proiettili/collisioni (i proiettili hanno un raggio limitato)
@@ -10,7 +10,7 @@ Lorenzo
 ---
 
 Bianca
-✔️ risolvere getcwd
+✔ risolvere getcwd
 - Compilazione mac
 - Struttura dati mappa
 - A*
