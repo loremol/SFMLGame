@@ -1,7 +1,7 @@
 //
 // Created by Lorenzo on 19/04/2023.
 //
-#include "GameEntity.h"
+#include "GameEntity.hpp"
 
 GameEntity::GameEntity(const std::string& texturePath, const sf::Vector2i spriteResolution) {
     setUpSprite(texturePath, spriteResolution);
