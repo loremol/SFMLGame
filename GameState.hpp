@@ -14,10 +14,10 @@
 namespace SFMLGame {
     class GameState : public State {
     public:
-        explicit GameState(GameDataRef data) :  data(std::move(data)), player(filePaths.PlayerSpritePath.make_preferred().string(), sf::Vector2i(64,64)),
+        explicit GameState(const GameDataRef& data) :  data(data), player(data),
                                                 world(sf::Vector2i(64,64), sf::Vector2i(SCREEN_WIDTH,SCREEN_HEIGHT)){};
 
-        void Init() override {};
+        void Init() override;
         void HandleInput() override;
         void Update(float dt) override;
         void Draw(float dt) override;

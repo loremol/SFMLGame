@@ -1,16 +1,17 @@
 # Sviluppo C++
 Lorenzo
-✔ Menu iniziale
-✔ Gestione stati di gioco
+
+- ✔ Menu iniziale
+- ✔ Gestione stati di gioco
+- ✔ Movimenti più fluidi
 - Visuale che si sposta con il personaggio
 - Muri passabili muri non passabili, porte che ti portano da altre parti della mappa
 - Proiettili/collisioni (i proiettili hanno un raggio limitato)
-- Movimenti più fluidi
 
 ---
 
 Bianca
-✔ risolvere getcwd
+- ✔ risolvere getcwd
 - Compilazione mac
 - Struttura dati mappa
 - A*

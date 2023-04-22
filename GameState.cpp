@@ -5,31 +5,19 @@
 #include "GameState.hpp"
 
 namespace SFMLGame {
-    void SFMLGame::GameState::HandleInput() {
+    void GameState::Init() {
+    }
+
+    void GameState::HandleInput() {
         sf::Event event{};
-        while (this->data->window.pollEvent(event))
-        {
+        while (this->data->window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 this->data->window.close();
-
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                printf("%d\n%d\n", sf::Mouse::getPosition(this->data->window).x, sf::Mouse::getPosition(this->data->window).y);
-            }
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-                player.setPressedKey(sf::Keyboard::D);
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                player.setPressedKey(sf::Keyboard::A);
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-                player.setPressedKey(sf::Keyboard::S);
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-                player.setPressedKey(sf::Keyboard::W);
         }
     }
 
     void GameState::Update(float dt) {
-        player.checkPressedKeys();
-        player.resetPressedKeys();
+        player.update(dt);
     }
 
     void GameState::Draw(float dt) {
@@ -40,8 +28,7 @@ namespace SFMLGame {
                 this->data->window.draw(world.tiles[i][j]->sprite);
             }
         }
-        this->data->window.draw(player.getSprite());
+        this->player.draw();
         this->data->window.display();
     }
-
 }

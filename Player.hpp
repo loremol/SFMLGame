@@ -5,36 +5,23 @@
 #ifndef SFMLGAME_PLAYER_HPP
 #define SFMLGAME_PLAYER_HPP
 #include <SFML/Graphics.hpp>
-#include "GameEntity.hpp"
+#include "Game.hpp"
+#include "Entity.hpp"
+#include "Definitions.hpp"
 
 namespace SFMLGame {
-    struct keys {
-        bool up     = false;
-        bool down   = false;
-        bool left   = false;
-        bool right  = false;
-    };
-
-    class Player : public GameEntity {
+    class Player : public Entity {
     public:
-        Player(const std::string &texturePath, sf::Vector2i spriteResolution) : GameEntity(texturePath, spriteResolution) {
-            positionVector.x = 0;
-            positionVector.y = 0;
-        };
+        explicit Player(const GameDataRef& data);
 
-        sf::Sprite getSprite() {
-            return sprite;
-        }
-
-        void move(float,float);
-
-        void checkPressedKeys();
-        void setPressedKey(sf::Keyboard::Key Key);
-        void resetPressedKeys();
+        void move(float x_dir,float y_dir, float dt);
+        void update(float dt);
+        void draw();
 
     private:
-        keys            pressedKeys;
-        sf::Vector2f    velocity;
+        GameDataRef data;
+        std::filesystem::path texturePath;
+        float velocity;
     };
 
 }

@@ -5,9 +5,9 @@
 #include "StateMachine.hpp"
 
 namespace SFMLGame {
-    void StateMachine::AddState(StateRef newState, bool isReplacing) {
+    void StateMachine::AddState(StateRef newState, bool isAskingToReplace) {
         this->isAdding = true;
-        this->isReplacing = isReplacing;
+        this->isReplacing = isAskingToReplace;
         this->addedState = std::move(newState);
     }
 

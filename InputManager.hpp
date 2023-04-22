@@ -9,10 +9,10 @@
 namespace SFMLGame {
     class InputManager {
     public:
-        InputManager();
-        ~InputManager();
+        InputManager() = default;
+        ~InputManager() = default;
 
-        bool IsSpriteClicked(const sf::Sprite& object, sf::Mouse::Button button, const sf::RenderWindow& window) const;
+        bool IsSpriteClicked(const sf::Sprite& object, sf::Mouse::Button button, const sf::RenderWindow& window);
     };
 }
 

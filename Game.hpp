@@ -23,10 +23,11 @@ namespace SFMLGame {
     class Game {
     public:
         Game(int width, int height, const std::string& title);
+        ~Game() = default;
     private:
         const float dt = 1.0f / 60.0f; // times to update per second
-        sf::Clock clock; // required for handling framerate
-        GameDataRef data = std::make_shared<GameData>(); // used by different states to access GameData
+        const sf::Clock clock; // required for handling framerate
+        const GameDataRef data = std::make_shared<GameData>(); // used by different states to access GameData
         void Run();
     };
 }

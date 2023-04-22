@@ -14,8 +14,8 @@ namespace SFMLGame {
      */
     class AssetManager {
     public:
-        AssetManager();
-        ~AssetManager();
+        AssetManager() = default;
+        ~AssetManager() = default;
 
         void LoadTexture(const std::string& name, const std::string& fileName);
         sf::Texture &GetTexture(const std::string& name);
@@ -24,8 +24,8 @@ namespace SFMLGame {
         sf::Font &GetFont(const std::string& name);
 
     private:
-        std::map<std::string, sf::Texture> _textures;
-        std::map<std::string, sf::Font> _fonts;
+        std::map<std::string, sf::Texture> textures;
+        std::map<std::string, sf::Font> fonts;
     };
 
 }

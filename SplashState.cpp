@@ -2,7 +2,6 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#include <sstream>
 #include <iostream>
 #include <utility>
 #include "SplashState.hpp"
