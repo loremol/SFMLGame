@@ -38,6 +38,7 @@ namespace SFMLGame {
         unsigned framerateLimit = 120;
         bool vsyncEnabled = false;
         unsigned antialiasingLevel = 0;
+
         void Run();
     };
 }

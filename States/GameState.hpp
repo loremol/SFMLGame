@@ -19,7 +19,7 @@ namespace SFMLGame {
 
         void Init() override;
 
-        void HandleInput() override;
+        void HandleInput(const float& dt);
 
         void Update(float dt) override;
 

@@ -15,8 +15,6 @@ namespace SFMLGame {
 
         ~PlayButton() override = default;
 
-        bool isPressed();
-
         void update() override;
     };
 }

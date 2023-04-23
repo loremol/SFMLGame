@@ -11,7 +11,7 @@
 #define SCREEN_HEIGHT 512
 
 // Splash screen
-#define SPLASH_STATE_SHOWTIME 0.5
+#define SPLASH_STATE_SHOWTIME 0.2
 
 // Filepaths
 namespace SFMLGame {

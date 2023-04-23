@@ -6,18 +6,36 @@
 #define SFMLGAME_ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
+#include "../Components/MovementComponent.hpp"
+#include "../Game.hpp"
 
-class Entity {
-public:
-    Entity() = default;
+namespace SFMLGame {
+    class Entity {
+    public:
+        Entity(GameDataRef dataRef, const float &maxVel, const float &acc, const float &dec, std::string spriteName);
 
-    ~Entity() = default;
+        virtual ~Entity() = default;
 
-protected:
-    sf::Texture texture;
-    sf::Sprite sprite;
-    sf::Vector2f positionVector;
-};
+        virtual void setPosition(const float &x, const float &y);
 
+        virtual void setSprite(const std::string &name);
+
+        virtual void move(float dir_x, float dir_y, const float &dt);
+
+        virtual void update(const float& dt);
+
+        virtual void render();
+
+    protected:
+        GameDataRef data;
+        sf::Texture texture;
+        sf::Sprite sprite;
+        std::string spriteName;
+        sf::Vector2f positionVector;
+        MovementComponent movementComponent;
+        float maxVelocity;
+    };
+
+}
 
 #endif //SFMLGAME_ENTITY_HPP

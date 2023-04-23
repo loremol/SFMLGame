@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 int main() {
-    SFMLGame::Game();
+    SFMLGame::Game game;
     return EXIT_SUCCESS;
 }
 

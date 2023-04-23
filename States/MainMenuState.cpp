@@ -15,15 +15,13 @@ namespace SFMLGame {
                                                                 "MainMenuFont"),
                                                      exitButton(this->data,
                                                                 static_cast<float>(this->data->window.getSize().x / 2) -
-                                                                256.f / 2.f, this->data->window.getSize().y / 1.5f, 256.f,
+                                                                256.f / 2.f, this->data->window.getSize().y / 1.5f,
+                                                                256.f,
                                                                 50.f, "Exit",
                                                                 "MainMenuFont") {
-        this->title = sf::Text("SFMLGame", this->data->assets.GetFont("MainMenuFont"), 30);
-        this->title.setPosition((static_cast<float>(SCREEN_WIDTH) / 2.f) - (this->title.getGlobalBounds().width / 2),
-                                this->title.getGlobalBounds().height * 0.1f);
     }
 
-    void MainMenuState::HandleInput() {
+    void MainMenuState::HandleInput(const float& dt) {
         sf::Event event{};
         while (this->data->window.pollEvent(event)) {
             if (sf::Event::Closed == event.type) {
@@ -34,7 +32,7 @@ namespace SFMLGame {
                 this->data->machine.AddState(StateRef(new GameState(this->data)), true);
             }
 
-            if(this->exitButton.isPressed()) {
+            if (this->exitButton.isPressed()) {
                 this->data->window.close();
             }
         }

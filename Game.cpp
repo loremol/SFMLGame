@@ -10,8 +10,8 @@ namespace SFMLGame {
     Game::Game() {
         sf::ContextSettings contextSettings;
         std::ifstream ifs("settings.txt", std::ios::in);
-        if(ifs.is_open()) {
-            std::getline(ifs,this->windowTitle);
+        if (ifs.is_open()) {
+            std::getline(ifs, this->windowTitle);
             ifs >> this->resolution.width >> this->resolution.height;
             ifs >> this->fullscreen;
             ifs >> this->framerateLimit;
@@ -19,10 +19,11 @@ namespace SFMLGame {
             ifs >> this->antialiasingLevel;
         }
         contextSettings.antialiasingLevel = this->antialiasingLevel;
-        if(fullscreen) {
+        if (fullscreen) {
             data->window.create(this->resolution, this->windowTitle, sf::Style::Fullscreen, contextSettings);
         } else {
-            data->window.create(this->resolution, this->windowTitle, sf::Style::Titlebar | sf::Style::Close, contextSettings);
+            data->window.create(this->resolution, this->windowTitle, sf::Style::Titlebar | sf::Style::Close,
+                                contextSettings);
         }
         data->machine.AddState(StateRef(new SplashState(this->data)));
         ifs.close();
@@ -43,7 +44,7 @@ namespace SFMLGame {
             currentTime = newTime;
             accumulator += frameTime; // total of all frame times
             while (accumulator >= dt) {
-                this->data->machine.GetActiveState()->HandleInput();
+                this->data->machine.GetActiveState()->HandleInput(dt);
                 this->data->machine.GetActiveState()->Update(dt);
                 accumulator -= dt;
             }

@@ -9,9 +9,9 @@
 
 namespace SFMLGame {
     PlayButton::PlayButton(GameDataRef dataRef, float x, float y, float width, float height,
-                                     const std::string &text, const std::string &font) : Button(std::move(dataRef), x,
-                                                                                                y, width, height, text,
-                                                                                                font) {
+                           const std::string &text, const std::string &font) : Button(std::move(dataRef), x,
+                                                                                      y, width, height, text,
+                                                                                      font) {
         this->shape.setPosition(sf::Vector2f(x, y));
         this->shape.setSize(sf::Vector2f(width, height));
         this->font = this->data->assets.GetFont(font);
@@ -51,10 +51,6 @@ namespace SFMLGame {
                 this->shape.setFillColor(this->clickColor);
                 break;
         }
-    }
-
-    bool PlayButton::isPressed() {
-        return Button::isPressed();
     }
 
 }

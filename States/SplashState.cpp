@@ -15,7 +15,7 @@ namespace SFMLGame {
         background.setTexture(this->data->assets.GetTexture("SplashStateBackground"));
     }
 
-    void SplashState::HandleInput() {
+    void SplashState::HandleInput(const float& dt) {
         sf::Event event{};
         while (this->data->window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -41,6 +41,6 @@ namespace SFMLGame {
         this->data->assets.LoadFont("MainMenuFont", filePaths.MainMenuFontPath.make_preferred().string());
         this->data->assets.LoadTexture("MainMenuPlayButton",
                                        filePaths.MainMenuPlayButtonPath.make_preferred().string());
-
+        this->data->assets.LoadTexture("PlayerSprite", filePaths.PlayerSpritePath.make_preferred().string());
     }
 }

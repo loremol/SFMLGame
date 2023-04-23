@@ -13,18 +13,13 @@
 namespace SFMLGame {
     class Player : public Entity {
     public:
-        explicit Player(GameDataRef data);
-
-        void move(float x_dir, float y_dir, float dt);
-
-        void update(float dt);
-
-        void draw() const;
+        Player(GameDataRef data, float x, float y);
 
     private:
-        GameDataRef data;
         std::filesystem::path texturePath;
-        float velocity;
+        sf::Vector2f velocity = sf::Vector2f(0.f, 0.f);
+        float acceleration = 5.f;
+        float deceleration = 3.f;
     };
 
 }
