@@ -4,18 +4,21 @@
 
 #ifndef SFMLGAME_PLAYER_HPP
 #define SFMLGAME_PLAYER_HPP
+
 #include <SFML/Graphics.hpp>
-#include "Game.hpp"
-#include "Entity.hpp"
-#include "Definitions.hpp"
+#include "../Game.hpp"
+#include "../Entities/Entity.hpp"
+#include "../Definitions.hpp"
 
 namespace SFMLGame {
     class Player : public Entity {
     public:
-        explicit Player(const GameDataRef& data);
+        explicit Player(const GameDataRef &data);
 
-        void move(float x_dir,float y_dir, float dt);
+        void move(float x_dir, float y_dir, float dt);
+
         void update(float dt);
+
         void draw();
 
     private:

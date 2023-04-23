@@ -4,11 +4,12 @@
 
 #ifndef SFMLGAME_MAINMENUSTATE_HPP
 #define SFMLGAME_MAINMENUSTATE_HPP
+
 #include <SFML/Graphics.hpp>
 #include <utility>
 #include "State.hpp"
-#include "Game.hpp"
-#include "Definitions.hpp"
+#include "../Game.hpp"
+#include "../Definitions.hpp"
 
 namespace SFMLGame {
     class MainMenuState : public State {
@@ -16,8 +17,11 @@ namespace SFMLGame {
         explicit MainMenuState(GameDataRef data);
 
         void Init() override {};
+
         void HandleInput() override;
+
         void Update(float dt) override;
+
         void Draw(float dt) override;
 
     private:

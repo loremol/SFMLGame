@@ -9,12 +9,13 @@ IF (WIN32)
     # Find cmakelists from SFML
     set(SFML_DIR C:/SFML/lib/cmake/SFML)
 
-    find_package(SFML COMPONENTS system window graphics REQUIRED)
+    find_package(SFML COMPONENTS graphics REQUIRED)
     include_directories(C:/SFML/include)
 
-    add_executable(SFMLGame main.cpp Tile.cpp Tile.hpp World.cpp World.hpp Entity.hpp Player.cpp Player.hpp Entity.cpp State.hpp StateMachine.cpp StateMachine.hpp AssetManager.cpp AssetManager.hpp InputManager.cpp InputManager.hpp Game.cpp Game.hpp Definitions.hpp SplashState.cpp SplashState.hpp MainMenuState.cpp MainMenuState.hpp GameState.cpp GameState.hpp)
-    target_link_libraries(SFMLGame sfml-system sfml-window sfml-graphics)
+    add_executable(SFMLGame main.cpp Map/Tile.cpp Map/Tile.hpp Map/World.cpp Map/World.hpp Entities/Entity.hpp Entities/Player.cpp Entities/Player.hpp Entities/Entity.cpp States/State.hpp States/StateMachine.cpp States/StateMachine.hpp AssetManager.cpp AssetManager.hpp InputManager.cpp InputManager.hpp Game.cpp Game.hpp Definitions.hpp States/SplashState.cpp States/SplashState.hpp States/MainMenuState.cpp States/MainMenuState.hpp States/GameState.cpp States/GameState.hpp)
 
-ELSE()
+    target_link_libraries(SFMLGame sfml-graphics)
+
+ELSE ()
     # set stuff for other systems
-ENDIF()
+ENDIF ()

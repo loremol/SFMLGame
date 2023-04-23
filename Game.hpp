@@ -4,10 +4,11 @@
 
 #ifndef SFMLGAME_GAME_HPP
 #define SFMLGAME_GAME_HPP
+
 #include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "StateMachine.hpp"
+#include "States/StateMachine.hpp"
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 
@@ -20,10 +21,13 @@ namespace SFMLGame {
     };
     /// Shared pointer for Game's GameData struct
     typedef std::shared_ptr<GameData> GameDataRef;
+
     class Game {
     public:
-        Game(int width, int height, const std::string& title);
+        Game(int width, int height, const std::string &title);
+
         ~Game() = default;
+
     private:
         const float dt = 1.0f / 60.0f; // times to update per second
         const sf::Clock clock; // required for handling framerate

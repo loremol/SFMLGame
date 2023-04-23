@@ -4,12 +4,15 @@
 
 #ifndef SFMLGAME_ENTITY_HPP
 #define SFMLGAME_ENTITY_HPP
+
 #include <SFML/Graphics.hpp>
 
 class Entity {
 public:
     Entity() = default;
+
     ~Entity() = default;
+
 protected:
     sf::Texture texture;
     sf::Sprite sprite;

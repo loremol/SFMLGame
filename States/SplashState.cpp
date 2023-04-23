@@ -5,12 +5,13 @@
 #include <iostream>
 #include <utility>
 #include "SplashState.hpp"
-#include "Definitions.hpp"
+#include "../Definitions.hpp"
 #include "MainMenuState.hpp"
 
 namespace SFMLGame {
     SplashState::SplashState(GameDataRef data) : data(std::move(data)) {
-        this->data->assets.LoadTexture("SplashStateBackground", filePaths.SplashScreenBackgroundPath.make_preferred().string());
+        this->data->assets.LoadTexture("SplashStateBackground",
+                                       filePaths.SplashScreenBackgroundPath.make_preferred().string());
         background.setTexture(this->data->assets.GetTexture("SplashStateBackground"));
     }
 
@@ -29,6 +30,7 @@ namespace SFMLGame {
             this->data->machine.AddState(StateRef(new MainMenuState(this->data)), true);
         }
     }
+
     void SplashState::Draw(float dt) {
         this->data->window.clear();
         this->data->window.draw(this->background);

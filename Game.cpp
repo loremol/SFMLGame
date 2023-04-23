@@ -3,10 +3,10 @@
 //
 
 #include "Game.hpp"
-#include "SplashState.hpp"
+#include "States/SplashState.hpp"
 
 namespace SFMLGame {
-    Game::Game(int width, int height, const std::string& title) {
+    Game::Game(int width, int height, const std::string &title) {
         data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
         data->machine.AddState(StateRef(new SplashState(this->data)));
         this->Run();
@@ -20,12 +20,12 @@ namespace SFMLGame {
             this->data->machine.ProcessStateChanges();
             newTime = this->clock.getElapsedTime().asSeconds();
             frameTime = newTime - currentTime;
-            if(frameTime > 0.25f) {
+            if (frameTime > 0.25f) {
                 frameTime = 0.25f;
             }
             currentTime = newTime;
             accumulator += frameTime; // total of all frame times
-            while(accumulator >= dt) {
+            while (accumulator >= dt) {
                 this->data->machine.GetActiveState()->HandleInput();
                 this->data->machine.GetActiveState()->Update(dt);
                 accumulator -= dt;

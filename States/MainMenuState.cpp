@@ -4,12 +4,13 @@
 
 #include <iostream>
 #include "MainMenuState.hpp"
-#include "Definitions.hpp"
+#include "../Definitions.hpp"
 #include "GameState.hpp"
 
 namespace SFMLGame {
-    MainMenuState::MainMenuState(GameDataRef data) : data(std::move(data)){
-        this->data->assets.LoadTexture("MainMenuPlayButton", filePaths.MainMenuPlayButtonPath.make_preferred().string());
+    MainMenuState::MainMenuState(GameDataRef data) : data(std::move(data)) {
+        this->data->assets.LoadTexture("MainMenuPlayButton",
+                                       filePaths.MainMenuPlayButtonPath.make_preferred().string());
         this->data->assets.LoadFont("MainMenuFont", filePaths.MainMenuFontPath.make_preferred().string());
 
         this->title = sf::Text("SFMLGame", this->data->assets.GetFont("MainMenuFont"), 30);
@@ -19,8 +20,8 @@ namespace SFMLGame {
         this->playButtonSprite.setPosition((SCREEN_WIDTH / 2) - (this->playButtonSprite.getGlobalBounds().width / 2),
                                            (SCREEN_HEIGHT / 2) - (this->playButtonSprite.getGlobalBounds().height / 2));
         this->playButtonText = sf::Text("Play", this->data->assets.GetFont("MainMenuFont"));
-        this->playButtonText.setPosition(SCREEN_WIDTH / 2 - this->playButtonText.getGlobalBounds().width/2,
-                                         (SCREEN_HEIGHT / 2 - this->playButtonText.getGlobalBounds().height)*0.99f);
+        this->playButtonText.setPosition(SCREEN_WIDTH / 2 - this->playButtonText.getGlobalBounds().width / 2,
+                                         (SCREEN_HEIGHT / 2 - this->playButtonText.getGlobalBounds().height) * 0.99f);
     }
 
     void MainMenuState::HandleInput() {
@@ -31,7 +32,7 @@ namespace SFMLGame {
             }
 
             if (this->data->input.IsSpriteClicked(this->playButtonSprite, sf::Mouse::Left, this->data->window)) {
-                this->data->machine.AddState(StateRef(new GameState(this->data)),true);
+                this->data->machine.AddState(StateRef(new GameState(this->data)), true);
             }
         }
     }
@@ -41,7 +42,7 @@ namespace SFMLGame {
     }
 
     void MainMenuState::Draw(float dt) {
-        this->data->window.clear(sf::Color(149,125,173));
+        this->data->window.clear(sf::Color(149, 125, 173));
         this->data->window.draw(this->playButtonSprite);
         this->data->window.draw(this->playButtonText);
         this->data->window.draw(this->title);
