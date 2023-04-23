@@ -5,10 +5,9 @@
 #include "Player.hpp"
 
 #include <utility>
-#include "../Definitions.hpp"
 
 namespace SFMLGame {
-    Player::Player(const GameDataRef &data) : Entity(), velocity(100.f), data(data) {
+    Player::Player(GameDataRef data) : Entity(), velocity(100.f), data(std::move(data)) {
         SFMLGame::FilePaths filePaths;
         this->data->assets.LoadTexture("PlayerSprite", filePaths.PlayerSpritePath.make_preferred().string());
         this->sprite.setTexture(this->data->assets.GetTexture("PlayerSprite"));
@@ -32,7 +31,7 @@ namespace SFMLGame {
             this->move(1.f, 0.f, dt);
     }
 
-    void Player::draw() {
+    void Player::draw() const {
         this->data->window.draw(this->sprite);
     }
 }

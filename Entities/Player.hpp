@@ -13,13 +13,13 @@
 namespace SFMLGame {
     class Player : public Entity {
     public:
-        explicit Player(const GameDataRef &data);
+        explicit Player(GameDataRef data);
 
         void move(float x_dir, float y_dir, float dt);
 
         void update(float dt);
 
-        void draw();
+        void draw() const;
 
     private:
         GameDataRef data;

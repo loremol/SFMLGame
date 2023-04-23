@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "MainMenuState.hpp"
-#include "../Definitions.hpp"
 #include "GameState.hpp"
 
 namespace SFMLGame {
@@ -14,14 +13,16 @@ namespace SFMLGame {
         this->data->assets.LoadFont("MainMenuFont", filePaths.MainMenuFontPath.make_preferred().string());
 
         this->title = sf::Text("SFMLGame", this->data->assets.GetFont("MainMenuFont"), 30);
-        this->title.setPosition((SCREEN_WIDTH / 2) - (this->title.getGlobalBounds().width / 2),
+        this->title.setPosition((static_cast<float>(SCREEN_WIDTH) / 2.f) - (this->title.getGlobalBounds().width / 2),
                                 this->title.getGlobalBounds().height * 0.1f);
         this->playButtonSprite.setTexture(this->data->assets.GetTexture("MainMenuPlayButton"));
-        this->playButtonSprite.setPosition((SCREEN_WIDTH / 2) - (this->playButtonSprite.getGlobalBounds().width / 2),
-                                           (SCREEN_HEIGHT / 2) - (this->playButtonSprite.getGlobalBounds().height / 2));
+        this->playButtonSprite.setPosition(
+                (static_cast<float>(SCREEN_WIDTH) / 2.f) - (this->playButtonSprite.getGlobalBounds().width / 2),
+                (static_cast<float>(SCREEN_HEIGHT) / 2.f) - (this->playButtonSprite.getGlobalBounds().height / 2));
         this->playButtonText = sf::Text("Play", this->data->assets.GetFont("MainMenuFont"));
-        this->playButtonText.setPosition(SCREEN_WIDTH / 2 - this->playButtonText.getGlobalBounds().width / 2,
-                                         (SCREEN_HEIGHT / 2 - this->playButtonText.getGlobalBounds().height) * 0.99f);
+        this->playButtonText.setPosition(
+                static_cast<float>(SCREEN_WIDTH) / 2.f - this->playButtonText.getGlobalBounds().width / 2,
+                (static_cast<float>(SCREEN_HEIGHT) / 2.f - this->playButtonText.getGlobalBounds().height) * 0.99f);
     }
 
     void MainMenuState::HandleInput() {

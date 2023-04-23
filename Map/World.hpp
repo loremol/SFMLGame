@@ -13,19 +13,16 @@
 namespace SFMLGame {
     class World {
     public:
-// Matrix of GameTile pointers
+        // Matrix of GameTile pointers
         std::vector<std::vector<Tile *>> tiles;
 
-        // Getter for gridLength
-        int getGridLength() const {
-            return gridLength;
-        }
-
         // FIXME make grid length dependant on the map
-        World(sf::Vector2i backgroundTileResolution, sf::Vector2i windowResolution);
+        World(GameDataRef dataRef, sf::Vector2f backgroundTileResolution);
+
+        int gridLength;
 
     private:
-        int gridLength;
+        GameDataRef data;
         std::string resourcePath;
         FilePaths filePaths;
     };

@@ -5,7 +5,13 @@
 #include "GameState.hpp"
 
 namespace SFMLGame {
+    GameState::GameState(const GameDataRef &dataRef) : data(dataRef), player(dataRef),
+                                                       world(dataRef, sf::Vector2f(64.f, 64.f)) {
+
+    }
+
     void GameState::Init() {
+
     }
 
     void GameState::HandleInput() {
@@ -23,9 +29,9 @@ namespace SFMLGame {
     void GameState::Draw(float dt) {
         this->data->window.clear();
 
-        for (int i = 0; i < world.getGridLength(); i++) {
-            for (int j = 0; j < world.getGridLength(); j++) {
-                this->data->window.draw(world.tiles[i][j]->sprite);
+        for (int i = 0; i < this->world.gridLength; i++) {
+            for (int j = 0; j < this->world.gridLength; j++) {
+                this->data->window.draw(this->world.tiles[i][j]->sprite);
             }
         }
         this->player.draw();

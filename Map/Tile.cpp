@@ -4,15 +4,15 @@
 
 #include "Tile.hpp"
 
+#include <utility>
+
 namespace SFMLGame {
-    bool Tile::setUpSprite(const std::string &texturePath, sf::Vector2i spriteResolution) {
-        if (!texture.loadFromFile(texturePath)) {
-            printf("Error in loading texture.\n");
-            return false;
-        }
-        texture.setSmooth(true);
-        sprite.setTexture(texture);
-        sprite.setTextureRect(sf::IntRect(0, 0, spriteResolution.x, spriteResolution.y));
-        return true;
+    Tile::Tile(GameDataRef dataRef, const std::string &spriteName, sf::Vector2f positionVector) : data(
+            std::move(dataRef)), pos(positionVector) {
+        this->texture = this->data->assets.GetTexture(spriteName);
+        this->texture.setSmooth(true);
+        this->sprite.setTexture(this->texture);
+        this->sprite.setTexture(texture);
+        this->sprite.setPosition(positionVector.x, positionVector.y);
     }
 }

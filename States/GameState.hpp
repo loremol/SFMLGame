@@ -15,9 +15,7 @@
 namespace SFMLGame {
     class GameState : public State {
     public:
-        explicit GameState(const GameDataRef &data) : data(data), player(data), world(sf::Vector2i(64, 64),
-                                                                                      sf::Vector2i(SCREEN_WIDTH,
-                                                                                                   SCREEN_HEIGHT)) {};
+        explicit GameState(const GameDataRef &dataRef);
 
         void Init() override;
 
