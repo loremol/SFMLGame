@@ -5,7 +5,7 @@
 #include "Player.hpp"
 
 #include <utility>
-#include "Definitions.hpp"
+#include "../Definitions.hpp"
 
 namespace SFMLGame {
     Player::Player(const GameDataRef& data) : Entity(), velocity(100.f), data(data) {

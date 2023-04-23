@@ -7,8 +7,8 @@
 #include <SFML/Graphics.hpp>
 #include <utility>
 #include "State.hpp"
-#include "Game.hpp"
-#include "Definitions.hpp"
+#include "../Game.hpp"
+#include "../Definitions.hpp"
 
 namespace SFMLGame {
     class MainMenuState : public State {

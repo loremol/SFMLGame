@@ -5,9 +5,9 @@
 #ifndef SFMLGAME_PLAYER_HPP
 #define SFMLGAME_PLAYER_HPP
 #include <SFML/Graphics.hpp>
-#include "Game.hpp"
-#include "Entity.hpp"
-#include "Definitions.hpp"
+#include "../Game.hpp"
+#include "../Entities/Entity.hpp"
+#include "../Definitions.hpp"
 
 namespace SFMLGame {
     class Player : public Entity {

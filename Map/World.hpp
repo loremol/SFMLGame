@@ -5,8 +5,8 @@
 #ifndef SFMLGAME_WORLD_HPP
 #define SFMLGAME_WORLD_HPP
 #include <SFML/Graphics.hpp>
-#include "Tile.hpp"
-#include "Definitions.hpp"
+#include "../Map/Tile.hpp"
+#include "../Definitions.hpp"
 #include <vector>
 
 namespace SFMLGame {

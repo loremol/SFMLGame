@@ -3,7 +3,7 @@
 //
 
 #include "Game.hpp"
-#include "SplashState.hpp"
+#include "States/SplashState.hpp"
 
 namespace SFMLGame {
     Game::Game(int width, int height, const std::string& title) {

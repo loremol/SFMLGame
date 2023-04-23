@@ -5,7 +5,7 @@
 #include <iostream>
 #include <utility>
 #include "SplashState.hpp"
-#include "Definitions.hpp"
+#include "../Definitions.hpp"
 #include "MainMenuState.hpp"
 
 namespace SFMLGame {

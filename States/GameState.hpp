@@ -6,10 +6,10 @@
 #define SFMLGAME_GAMESTATE_HPP
 #include "State.hpp"
 #include <utility>
-#include "Game.hpp"
-#include "Player.hpp"
-#include "Definitions.hpp"
-#include "World.hpp"
+#include "../Game.hpp"
+#include "../Entities/Player.hpp"
+#include "../Definitions.hpp"
+#include "../Map/World.hpp"
 
 namespace SFMLGame {
     class GameState : public State {

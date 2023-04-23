@@ -3,7 +3,7 @@
 //
 
 #include "World.hpp"
-#include "Definitions.hpp"
+#include "../Definitions.hpp"
 #if _WIN32
     std::string slash = R"(\)";
 #endif
