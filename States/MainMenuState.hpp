@@ -17,7 +17,9 @@ namespace SFMLGame {
     class MainMenuState : public State {
     public:
         explicit MainMenuState(GameDataRef data);
+
         ~MainMenuState() override = default;
+
         void Init() override {};
 
         void HandleInput() override;

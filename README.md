@@ -1,4 +1,5 @@
 # Sviluppo C++
+
 Lorenzo
 
 - ✔ Menu iniziale
@@ -11,6 +12,7 @@ Lorenzo
 ---
 
 Bianca
+
 - ✔ risolvere getcwd
 - Compilazione mac
 - Struttura dati mappa
@@ -25,6 +27,7 @@ Bianca
 - Possibilità di scelta di classe e personaggio
 
 # Storia
+
 - obiettivo?
 - inizio?
 - mostri che droppano? casse? interfaccia npc? negozio npc? quest?
@@ -35,8 +38,8 @@ Bianca
 - mondo alieno? luna?
 - parte sulla terra
 
-
 # GFX
+
 - pack di sprite da ia? (discord?)
 - musica da ia?
 - mappe da ia?

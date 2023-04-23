@@ -17,13 +17,17 @@ namespace SFMLGame {
 
         this->text.setFont(this->font);
         this->text.setString(text);
-        this->text.setPosition(this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
-                               this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height);
+        this->text.setPosition(this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) -
+                               this->text.getGlobalBounds().width / 2.f,
+                               this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) -
+                               this->text.getGlobalBounds().height);
     }
 
-    bool Button::isPressed() const {
-        if (this->buttonState == BTN_PRESSED)
+    bool Button::isPressed() {
+        if (this->buttonState == BTN_PRESSED) {
+            this->buttonState = BTN_IDLE;
             return true;
+        }
         return false;
     }
 }

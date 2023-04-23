@@ -15,7 +15,8 @@ namespace SFMLGame {
 
     class Button {
     public:
-        Button(GameDataRef dataRef, float x, float y, float width, float height, const std::string& text, const std::string& font);
+        Button(GameDataRef dataRef, float x, float y, float width, float height, const std::string &text,
+               const std::string &font);
 
         virtual ~Button() = default;
 
@@ -23,7 +24,7 @@ namespace SFMLGame {
 
         virtual void render() = 0;
 
-        virtual bool isPressed() const;
+        virtual bool isPressed();
 
     protected:
         GameDataRef data;

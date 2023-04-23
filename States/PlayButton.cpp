@@ -8,7 +8,10 @@
 #include <utility>
 
 namespace SFMLGame {
-    SFMLGame::PlayButton::PlayButton(GameDataRef dataRef, float x, float y, float width, float height, const std::string& text, const std::string& font) : Button(std::move(dataRef),x,y,width,height,text,font) {
+    SFMLGame::PlayButton::PlayButton(GameDataRef dataRef, float x, float y, float width, float height,
+                                     const std::string &text, const std::string &font) : Button(std::move(dataRef), x,
+                                                                                                y, width, height, text,
+                                                                                                font) {
         this->shape.setPosition(sf::Vector2f(x, y));
         this->shape.setSize(sf::Vector2f(width, height));
         this->font = this->data->assets.GetFont(font);
@@ -16,12 +19,14 @@ namespace SFMLGame {
         this->text.setString(text);
         this->text.setFillColor(sf::Color::White);
         this->text.setCharacterSize(25);
-        this->text.setPosition(this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
-                               this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height);
+        this->text.setPosition(this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) -
+                               this->text.getGlobalBounds().width / 2.f,
+                               this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) -
+                               this->text.getGlobalBounds().height);
 
-        this->idleColor = sf::Color(70,70,70,200);
-        this->hoverColor = sf::Color(150,150,150,255);
-        this->clickColor = sf::Color(20,20,20,200);
+        this->idleColor = sf::Color(70, 70, 70, 200);
+        this->hoverColor = sf::Color(150, 150, 150, 255);
+        this->clickColor = sf::Color(20, 20, 20, 200);
 
         this->shape.setFillColor(this->idleColor);
     }
