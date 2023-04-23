@@ -2,13 +2,30 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
+#include <fstream>
 #include "Game.hpp"
 #include "States/SplashState.hpp"
 
 namespace SFMLGame {
-    Game::Game(int width, int height, const std::string &title) {
-        data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+    Game::Game() {
+        sf::ContextSettings contextSettings;
+        std::ifstream ifs("settings.txt", std::ios::in);
+        if(ifs.is_open()) {
+            std::getline(ifs,this->windowTitle);
+            ifs >> this->resolution.width >> this->resolution.height;
+            ifs >> this->fullscreen;
+            ifs >> this->framerateLimit;
+            ifs >> this->vsyncEnabled;
+            ifs >> this->antialiasingLevel;
+        }
+        contextSettings.antialiasingLevel = this->antialiasingLevel;
+        if(fullscreen) {
+            data->window.create(this->resolution, this->windowTitle, sf::Style::Fullscreen, contextSettings);
+        } else {
+            data->window.create(this->resolution, this->windowTitle, sf::Style::Titlebar | sf::Style::Close, contextSettings);
+        }
         data->machine.AddState(StateRef(new SplashState(this->data)));
+        ifs.close();
         this->Run();
     }
 

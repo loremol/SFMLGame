@@ -12,6 +12,7 @@
 #include "../Definitions.hpp"
 #include "Button.hpp"
 #include "PlayButton.hpp"
+#include "ExitButton.hpp"
 
 namespace SFMLGame {
     class MainMenuState : public State {
@@ -34,6 +35,7 @@ namespace SFMLGame {
         sf::Text title;
         sf::Font titleFont;
         PlayButton playButton;
+        ExitButton exitButton;
     };
 }
 

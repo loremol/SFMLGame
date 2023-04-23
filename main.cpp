@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 int main() {
-    SFMLGame::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Game");
+    SFMLGame::Game();
     return EXIT_SUCCESS;
 }
 

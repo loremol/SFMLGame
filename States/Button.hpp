@@ -22,7 +22,10 @@ namespace SFMLGame {
 
         virtual void update() = 0;
 
-        virtual void render() = 0;
+        virtual void render() {
+            this->data->window.draw(this->shape);
+            this->data->window.draw(this->text);
+        };
 
         virtual bool isPressed();
 

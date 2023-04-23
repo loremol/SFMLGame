@@ -19,6 +19,8 @@ namespace SFMLGame {
         while (this->data->window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 this->data->window.close();
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+                this->data->window.close();
         }
     }
 

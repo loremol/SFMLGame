@@ -2,16 +2,15 @@
 // Created by Lorenzo on 23/04/2023.
 //
 
-#include "PlayButton.hpp"
-#include "GameState.hpp"
+#include "ExitButton.hpp"
 
 #include <utility>
 
 namespace SFMLGame {
-    PlayButton::PlayButton(GameDataRef dataRef, float x, float y, float width, float height,
-                                     const std::string &text, const std::string &font) : Button(std::move(dataRef), x,
-                                                                                                y, width, height, text,
-                                                                                                font) {
+    ExitButton::ExitButton(GameDataRef dataRef, float x, float y, float width, float height,
+                           const std::string &text, const std::string &font) : Button(std::move(dataRef), x,
+                                                                                      y, width, height, text,
+                                                                                      font) {
         this->shape.setPosition(sf::Vector2f(x, y));
         this->shape.setSize(sf::Vector2f(width, height));
         this->font = this->data->assets.GetFont(font);
@@ -31,7 +30,7 @@ namespace SFMLGame {
         this->shape.setFillColor(this->idleColor);
     }
 
-    void PlayButton::update() {
+    void ExitButton::update() {
         this->buttonState = BTN_IDLE;
         if (this->data->input.isShapeHovered(this->shape, this->data->window)) {
             this->buttonState = BTN_HOVER;
@@ -53,8 +52,7 @@ namespace SFMLGame {
         }
     }
 
-    bool PlayButton::isPressed() {
+    bool ExitButton::isPressed() {
         return Button::isPressed();
     }
-
 }

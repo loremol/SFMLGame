@@ -24,7 +24,7 @@ namespace SFMLGame {
 
     class Game {
     public:
-        Game(int width, int height, const std::string &title);
+        Game();
 
         ~Game() = default;
 
@@ -32,6 +32,12 @@ namespace SFMLGame {
         const float dt = 1.0f / 60.0f; // times to update per second
         const sf::Clock clock; // required for handling framerate
         const GameDataRef data = std::make_shared<GameData>(); // used by different states to access GameData
+        sf::VideoMode resolution = sf::VideoMode::getDesktopMode();
+        std::string windowTitle = "Game";
+        bool fullscreen = false;
+        unsigned framerateLimit = 120;
+        bool vsyncEnabled = false;
+        unsigned antialiasingLevel = 0;
         void Run();
     };
 }

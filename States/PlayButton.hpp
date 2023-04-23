@@ -8,7 +8,7 @@
 #include "Button.hpp"
 
 namespace SFMLGame {
-    class PlayButton : Button {
+    class PlayButton : public Button {
     public:
         PlayButton(GameDataRef dataRef, float x, float y, float width, float height, const std::string &text,
                    const std::string &font);
@@ -18,8 +18,6 @@ namespace SFMLGame {
         bool isPressed();
 
         void update() override;
-
-        void render() override;
     };
 }
 
