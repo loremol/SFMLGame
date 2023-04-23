@@ -38,6 +38,9 @@ namespace SFMLGame {
     }
 
     void SplashState::Init() {
+        this->data->assets.LoadFont("MainMenuFont", filePaths.MainMenuFontPath.make_preferred().string());
+        this->data->assets.LoadTexture("MainMenuPlayButton",
+                                       filePaths.MainMenuPlayButtonPath.make_preferred().string());
 
     }
 }

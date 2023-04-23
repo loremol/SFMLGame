@@ -10,12 +10,14 @@
 #include "State.hpp"
 #include "../Game.hpp"
 #include "../Definitions.hpp"
+#include "Button.hpp"
+#include "PlayButton.hpp"
 
 namespace SFMLGame {
     class MainMenuState : public State {
     public:
         explicit MainMenuState(GameDataRef data);
-
+        ~MainMenuState() override = default;
         void Init() override {};
 
         void HandleInput() override;
@@ -27,12 +29,9 @@ namespace SFMLGame {
     private:
         GameDataRef data;
         FilePaths filePaths;
-        // For now using tint color
-        // sf::Sprite backgroundSprite;
-        sf::Sprite playButtonSprite;
-        sf::Text playButtonText;
         sf::Text title;
         sf::Font titleFont;
+        PlayButton playButton;
     };
 }
 
