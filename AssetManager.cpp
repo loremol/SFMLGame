@@ -16,7 +16,6 @@ namespace SFMLGame {
 
         if (texture.loadFromFile(fileName)) {
             this->textures[name] = texture;
-            std::cout << "Texture loaded successfully" << std::endl;
         } else {
             std::cout << "Error loading texture." << std::endl << fileName << std::endl;
         }
@@ -41,7 +40,6 @@ namespace SFMLGame {
 
         if (font.loadFromFile(fileName)) {
             this->fonts[name] = font;
-            printf("Font loaded successfully\n");
         }
     }
 
