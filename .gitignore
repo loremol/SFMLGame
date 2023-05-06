@@ -1,2 +1,11 @@
 cmake-build-debug/
 .idea/
+/SFMLGame.exe
+/CMakeCache.txt
+/cmake_install.cmake
+/build.ninja
+/.ninja_log
+/.ninja_deps
+/Testing/
+/CMakeFiles/
+/.cmake/

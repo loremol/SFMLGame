@@ -7,7 +7,7 @@
 #include <utility>
 
 namespace SFMLGame {
-    World::World(GameDataRef dataRef, sf::Vector2f backgroundTileResolution) : data(std::move(dataRef)), gridLength(8) {
+    World::World(GameDataRef dataRef, sf::Vector2f backgroundTileResolution) : data(std::move(dataRef)), gridLength(20) {
         tiles.clear();
         std::vector<Tile *> row;
         this->data->assets.LoadTexture("Floor", filePaths.GameFloorSpritePath.make_preferred().string());

@@ -5,7 +5,7 @@
 #include "GameState.hpp"
 
 namespace SFMLGame {
-    GameState::GameState(const GameDataRef &dataRef) : data(dataRef), player(dataRef, 64.f, 64.f),
+    GameState::GameState(const GameDataRef &dataRef) : data(dataRef), player(dataRef, 64.f*8.f, 64.f*8.f),
                                                        world(dataRef, sf::Vector2f(64.f, 64.f)) {
 
     }

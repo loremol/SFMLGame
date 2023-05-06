@@ -1,21 +1,18 @@
-cmake_minimum_required(VERSION 3.24.2)
-
+cmake_minimum_required(VERSION 3.18)
 project(SFMLGame)
-IF (WIN32)
-    set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SOURCE_FILES src/main.cpp src/Map/Tile.cpp src/Map/Tile.hpp src/Map/World.cpp src/Map/World.hpp src/Entities/Entity.hpp src/Entities/Player.cpp src/Entities/Player.hpp src/Entities/Entity.cpp src/States/State.hpp src/States/StateMachine.cpp src/States/StateMachine.hpp src/AssetManager.cpp src/AssetManager.hpp src/InputManager.cpp src/InputManager.hpp src/Game.cpp src/Game.hpp src/Definitions.hpp src/States/SplashState.cpp src/States/SplashState.hpp src/States/MainMenuState.cpp src/States/MainMenuState.hpp src/States/GameState.cpp src/States/GameState.hpp src/States/Button.cpp src/States/Button.hpp src/States/PlayButton.cpp src/States/PlayButton.hpp src/States/ExitButton.cpp src/States/ExitButton.hpp src/Components/MovementComponent.cpp src/Components/MovementComponent.hpp)
+add_executable(SFMLGame ${SOURCE_FILES})
 
-    # DLLs
-    set(SFML_STATIC_LIBRARIES TRUE)
-    # Find cmakelists from SFML
+if(WIN32)
     set(SFML_DIR C:/SFML/lib/cmake/SFML)
+else()
+    set(SFML_DIR /usr/lib/x86_64-linux-gnu/cmake/SFML)
+endif ()
 
-    find_package(SFML COMPONENTS graphics REQUIRED)
-    include_directories(C:/SFML/include)
-
-    add_executable(SFMLGame main.cpp Map/Tile.cpp Map/Tile.hpp Map/World.cpp Map/World.hpp Entities/Entity.hpp Entities/Player.cpp Entities/Player.hpp Entities/Entity.cpp States/State.hpp States/StateMachine.cpp States/StateMachine.hpp AssetManager.cpp AssetManager.hpp InputManager.cpp InputManager.hpp Game.cpp Game.hpp Definitions.hpp States/SplashState.cpp States/SplashState.hpp States/MainMenuState.cpp States/MainMenuState.hpp States/GameState.cpp States/GameState.hpp States/Button.cpp States/Button.hpp States/PlayButton.cpp States/PlayButton.hpp States/ExitButton.cpp States/ExitButton.hpp Components/MovementComponent.cpp Components/MovementComponent.hpp)
-
+find_package(SFML COMPONENTS graphics REQUIRED)
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(SFMLGame sfml-graphics)
-
-ELSE ()
-    # set stuff for other systems
-ENDIF ()
+endif()

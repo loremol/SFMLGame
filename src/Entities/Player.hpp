@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../Game.hpp"
-#include "../Entities/Entity.hpp"
+#include "Entity.hpp"
 #include "../Definitions.hpp"
 
 namespace SFMLGame {
