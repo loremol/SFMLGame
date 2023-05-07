@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_MAINMENUSTATE_HPP
 #define SFMLGAME_MAINMENUSTATE_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include <utility>
 #include "State.h"
 #include "../Game.h"

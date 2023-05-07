@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_PLAYER_HPP
 #define SFMLGAME_PLAYER_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include "../Game.h"
 #include "Entity.h"
 #include "../Definitions.h"

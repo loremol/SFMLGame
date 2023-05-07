@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_INPUTMANAGER_HPP
 #define SFMLGAME_INPUTMANAGER_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 
 namespace SFMLGame {
     class InputManager {

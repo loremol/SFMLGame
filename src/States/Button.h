@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_BUTTON_HPP
 #define SFMLGAME_BUTTON_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include "../Game.h"
 
 namespace SFMLGame {

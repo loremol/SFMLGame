@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_ENTITY_HPP
 #define SFMLGAME_ENTITY_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include "../Components/MovementComponent.h"
 #include "../Game.h"
 

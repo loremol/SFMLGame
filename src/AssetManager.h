@@ -6,7 +6,7 @@
 #define SFMLGAME_ASSETMANAGER_HPPP
 
 #include <map>
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 
 namespace SFMLGame {
     /**

@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_SPLASHSTATE_HPP
 #define SFMLGAME_SPLASHSTATE_HPP
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include "State.h"
 #include "../Game.h"
 #include "../Definitions.h"
