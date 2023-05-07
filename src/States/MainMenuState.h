@@ -5,14 +5,14 @@
 #ifndef SFMLGAME_MAINMENUSTATE_HPP
 #define SFMLGAME_MAINMENUSTATE_HPP
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.h>
 #include <utility>
-#include "State.hpp"
-#include "../Game.hpp"
-#include "../Definitions.hpp"
-#include "Button.hpp"
-#include "PlayButton.hpp"
-#include "ExitButton.hpp"
+#include "State.h"
+#include "../Game.h"
+#include "../Definitions.h"
+#include "Button.h"
+#include "PlayButton.h"
+#include "ExitButton.h"
 
 namespace SFMLGame {
     class MainMenuState : public State {

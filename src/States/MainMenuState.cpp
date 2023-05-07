@@ -3,8 +3,8 @@
 //
 
 #include <iostream>
-#include "MainMenuState.hpp"
-#include "GameState.hpp"
+#include "MainMenuState.h"
+#include "GameState.h"
 
 namespace SFMLGame {
     MainMenuState::MainMenuState(GameDataRef data) : data(std::move(data)),

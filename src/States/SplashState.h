@@ -5,10 +5,10 @@
 #ifndef SFMLGAME_SPLASHSTATE_HPP
 #define SFMLGAME_SPLASHSTATE_HPP
 
-#include <SFML/Graphics.hpp>
-#include "State.hpp"
-#include "../Game.hpp"
-#include "../Definitions.hpp"
+#include <SFML/Graphics.h>
+#include "State.h"
+#include "../Game.h"
+#include "../Definitions.h"
 
 namespace SFMLGame {
     class SplashState : public SFMLGame::State {
@@ -17,7 +17,7 @@ namespace SFMLGame {
 
         void Init() override;
 
-        void HandleInput(const float& dt) override;
+        void HandleInput(const float &dt) override;
 
         void Update(float dt) override;
 

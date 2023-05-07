@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_PLAYBUTTON_HPP
 #define SFMLGAME_PLAYBUTTON_HPP
 
-#include "Button.hpp"
+#include "Button.h"
 
 namespace SFMLGame {
     class PlayButton : public Button {

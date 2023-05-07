@@ -2,8 +2,8 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#ifndef SFMLGAME_DEFINITIONS_HPP
-#define SFMLGAME_DEFINITIONS_HPP
+#ifndef SFMLGAME_DEFINITIONS_H
+#define SFMLGAME_DEFINITIONS_H
 
 #include <filesystem>
 
@@ -27,4 +27,4 @@ namespace SFMLGame {
 }
 
 
-#endif //SFMLGAME_DEFINITIONS_HPP
+#endif //SFMLGAME_DEFINITIONS_H

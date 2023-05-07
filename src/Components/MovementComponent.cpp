@@ -2,7 +2,7 @@
 // Created by Lorenzo on 23/04/2023.
 //
 
-#include "MovementComponent.hpp"
+#include "MovementComponent.h"
 
 namespace SFMLGame {
     SFMLGame::MovementComponent::MovementComponent(sf::Sprite& sprite, float maxVelocity, float acc, float dec) : maxVelocity(maxVelocity), sprite(sprite),acceleration(acc),deceleration(dec) {

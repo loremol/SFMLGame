@@ -4,9 +4,9 @@
 
 #include <iostream>
 #include <utility>
-#include "SplashState.hpp"
-#include "../Definitions.hpp"
-#include "MainMenuState.hpp"
+#include "SplashState.h"
+#include "../Definitions.h"
+#include "MainMenuState.h"
 
 namespace SFMLGame {
     SplashState::SplashState(GameDataRef data) : data(std::move(data)) {
@@ -15,7 +15,7 @@ namespace SFMLGame {
         background.setTexture(this->data->assets.GetTexture("SplashStateBackground"));
     }
 
-    void SplashState::HandleInput(const float& dt) {
+    void SplashState::HandleInput(const float &dt) {
         sf::Event event{};
         while (this->data->window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {

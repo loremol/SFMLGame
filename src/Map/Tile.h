@@ -5,8 +5,8 @@
 #ifndef SFMLGAME_TILE_HPP
 #define SFMLGAME_TILE_HPP
 
-#include <SFML/Graphics.hpp>
-#include "../Game.hpp"
+#include <SFML/Graphics.h>
+#include "../Game.h"
 
 namespace SFMLGame {
     class Tile {

@@ -7,7 +7,7 @@
 
 #include <memory>
 #include <stack>
-#include "State.hpp"
+#include "State.h"
 
 namespace SFMLGame {
     typedef std::unique_ptr<State> StateRef;

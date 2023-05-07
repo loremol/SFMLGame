@@ -3,8 +3,8 @@
 //
 
 #include <fstream>
-#include "Game.hpp"
-#include "States/SplashState.hpp"
+#include "Game.h"
+#include "States/SplashState.h"
 
 namespace SFMLGame {
     Game::Game() {

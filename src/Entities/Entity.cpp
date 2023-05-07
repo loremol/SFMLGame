@@ -1,7 +1,7 @@
 //
 // Created by Lorenzo on 19/04/2023.
 //
-#include "Entity.hpp"
+#include "Entity.h"
 
 #include <utility>
 

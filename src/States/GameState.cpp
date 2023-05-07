@@ -2,7 +2,7 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#include "GameState.hpp"
+#include "GameState.h"
 
 namespace SFMLGame {
     GameState::GameState(const GameDataRef &dataRef) : data(dataRef), player(dataRef, 64.f*8.f, 64.f*8.f),

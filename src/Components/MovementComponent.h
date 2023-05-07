@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_MOVEMENTCOMPONENT_HPP
 #define SFMLGAME_MOVEMENTCOMPONENT_HPP
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.h>
 
 namespace SFMLGame {
     class MovementComponent {

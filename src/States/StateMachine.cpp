@@ -2,7 +2,7 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#include "StateMachine.hpp"
+#include "StateMachine.h"
 
 namespace SFMLGame {
     void StateMachine::AddState(StateRef newState, bool isAskingToReplace) {

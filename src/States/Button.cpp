@@ -2,8 +2,8 @@
 // Created by Lorenzo on 23/04/2023.
 //
 
-#include "Button.hpp"
-#include "GameState.hpp"
+#include "Button.h"
+#include "GameState.h"
 
 #include <utility>
 

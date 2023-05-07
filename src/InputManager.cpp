@@ -2,7 +2,7 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#include "InputManager.hpp"
+#include "InputManager.h"
 
 namespace SFMLGame {
     bool InputManager::isSpriteClicked(const sf::Sprite &sprite, sf::Mouse::Button button,

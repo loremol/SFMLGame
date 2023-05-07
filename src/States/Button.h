@@ -5,8 +5,8 @@
 #ifndef SFMLGAME_BUTTON_HPP
 #define SFMLGAME_BUTTON_HPP
 
-#include <SFML/Graphics.hpp>
-#include "../Game.hpp"
+#include <SFML/Graphics.h>
+#include "../Game.h"
 
 namespace SFMLGame {
     enum buttonStates {

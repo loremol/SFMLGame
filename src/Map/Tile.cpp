@@ -2,7 +2,7 @@
 // Created by Lorenzo on 18/04/2023.
 //
 
-#include "Tile.hpp"
+#include "Tile.h"
 
 #include <utility>
 

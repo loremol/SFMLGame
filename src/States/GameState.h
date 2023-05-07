@@ -5,12 +5,12 @@
 #ifndef SFMLGAME_GAMESTATE_HPP
 #define SFMLGAME_GAMESTATE_HPP
 
-#include "State.hpp"
+#include "State.h"
 #include <utility>
-#include "../Game.hpp"
-#include "../Entities/Player.hpp"
-#include "../Definitions.hpp"
-#include "../Map/World.hpp"
+#include "../Game.h"
+#include "../Entities/Player.h"
+#include "../Definitions.h"
+#include "../Map/World.h"
 
 namespace SFMLGame {
     class GameState : public State {
@@ -19,7 +19,7 @@ namespace SFMLGame {
 
         void Init() override;
 
-        void HandleInput(const float& dt);
+        void HandleInput(const float &dt) override;
 
         void Update(float dt) override;
 

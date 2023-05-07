@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "AssetManager.hpp"
+#include "AssetManager.h"
 
 namespace SFMLGame {
     /**

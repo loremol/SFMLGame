@@ -7,10 +7,10 @@
 
 #include <memory>
 #include <string>
-#include <SFML/Graphics.hpp>
-#include "States/StateMachine.hpp"
-#include "AssetManager.hpp"
-#include "InputManager.hpp"
+#include <SFML/Graphics.h>
+#include "States/StateMachine.h"
+#include "AssetManager.h"
+#include "InputManager.h"
 
 namespace SFMLGame {
     struct GameData {

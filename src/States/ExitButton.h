@@ -5,7 +5,7 @@
 #ifndef SFMLGAME_EXITBUTTON_HPP
 #define SFMLGAME_EXITBUTTON_HPP
 
-#include "Button.hpp"
+#include "Button.h"
 
 namespace SFMLGame {
     class ExitButton : public Button {

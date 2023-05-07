@@ -5,9 +5,9 @@
 #ifndef SFMLGAME_ENTITY_HPP
 #define SFMLGAME_ENTITY_HPP
 
-#include <SFML/Graphics.hpp>
-#include "../Components/MovementComponent.hpp"
-#include "../Game.hpp"
+#include <SFML/Graphics.h>
+#include "../Components/MovementComponent.h"
+#include "../Game.h"
 
 namespace SFMLGame {
     class Entity {

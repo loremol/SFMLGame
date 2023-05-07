@@ -1,5 +1,5 @@
-#include "Definitions.hpp"
-#include "Game.hpp"
+#include "Definitions.h"
+#include "Game.h"
 
 int main() {
     SFMLGame::Game game;
