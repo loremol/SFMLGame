@@ -22,7 +22,7 @@ Bianca
 ---
 
 - spariamo ma i nemici hanno un aggro limitato -> da sviluppare a livello di nemico personaggio
-- implementare mappe che si susseggono
+- implementare mappe che si susseguono
 - animazione movimento
 - Possibilità di scelta di classe e personaggio
 

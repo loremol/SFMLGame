@@ -9,3 +9,4 @@ cmake-build-debug/
 /Testing/
 /CMakeFiles/
 /.cmake/
+/cmake-build-mingw-debug/
