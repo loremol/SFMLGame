@@ -1,8 +1,10 @@
 #include "Definitions.h"
-#include "Game.h"
+#include "Init.h"
+
+using namespace game;
 
 int main() {
-    SFMLGame::Game game;
+    Init init;
     return EXIT_SUCCESS;
 }
 

@@ -1,21 +1,15 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
-#ifndef SFMLGAME_SPLASHSTATE_HPP
-#define SFMLGAME_SPLASHSTATE_HPP
+#ifndef GAME_SPLASHSTATE_HPP
+#define GAME_SPLASHSTATE_HPP
 
 #include <SFML/Graphics.hpp>
 #include "State.h"
-#include "../Game.h"
+#include "../Init.h"
 #include "../Definitions.h"
 
-namespace SFMLGame {
-    class SplashState : public SFMLGame::State {
+namespace game {
+    class SplashState : public State {
     public:
-        explicit SplashState(GameDataRef data);
-
-        void Init() override;
+        SplashState();
 
         void HandleInput(const float &dt) override;
 
@@ -24,12 +18,10 @@ namespace SFMLGame {
         void Draw(float dt) override;
 
     private:
-        SFMLGame::GameDataRef data;
         sf::Clock clock;
         sf::Sprite background;
-        FilePaths filePaths;
     };
 }
 
 
-#endif //SFMLGAME_SPLASHSTATE_HPP
+#endif //GAME_SPLASHSTATE_HPP

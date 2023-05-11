@@ -1,13 +1,9 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
-#ifndef SFMLGAME_INPUTMANAGER_HPP
-#define SFMLGAME_INPUTMANAGER_HPP
+#ifndef GAME_INPUTMANAGER_HPP
+#define GAME_INPUTMANAGER_HPP
 
 #include <SFML/Graphics.hpp>
 
-namespace SFMLGame {
+namespace game {
     class InputManager {
     public:
         InputManager() = default;
@@ -22,4 +18,4 @@ namespace SFMLGame {
     };
 }
 
-#endif //SFMLGAME_INPUTMANAGER_HPP
+#endif //GAME_INPUTMANAGER_HPP

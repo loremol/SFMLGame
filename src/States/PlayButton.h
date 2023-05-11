@@ -1,16 +1,12 @@
-//
-// Created by Lorenzo on 23/04/2023.
-//
-
-#ifndef SFMLGAME_PLAYBUTTON_HPP
-#define SFMLGAME_PLAYBUTTON_HPP
+#ifndef GAME_PLAYBUTTON_HPP
+#define GAME_PLAYBUTTON_HPP
 
 #include "Button.h"
 
-namespace SFMLGame {
+namespace game {
     class PlayButton : public Button {
     public:
-        PlayButton(GameDataRef dataRef, float x, float y, float width, float height, const std::string &text,
+        PlayButton(float x, float y, float width, float height, const std::string &text,
                    const std::string &font);
 
         ~PlayButton() override = default;
@@ -19,4 +15,4 @@ namespace SFMLGame {
     };
 }
 
-#endif //SFMLGAME_PLAYBUTTON_HPP
+#endif //GAME_PLAYBUTTON_HPP

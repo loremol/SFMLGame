@@ -3,70 +3,73 @@
 //
 
 #include "MovementComponent.h"
+#include "../mgr.h"
 
-namespace SFMLGame {
-    SFMLGame::MovementComponent::MovementComponent(sf::Sprite& sprite, float maxVelocity, float acc, float dec) : maxVelocity(maxVelocity), sprite(sprite),acceleration(acc),deceleration(dec) {
 
+namespace game {
+    MovementComponent::MovementComponent(const std::string &sprite, const float &maxVelocity, const float &acc,
+                                         const float &dec) : maxVelocity(maxVelocity), acceleration(acc),
+                                                             deceleration(dec) {
+        this->sprite.setTexture(mgr::assets.GetTexture(sprite));
     }
-    void SFMLGame::MovementComponent::update(const float &dt) {
+
+    void MovementComponent::update(const float &dt, sf::Vector2f &entityPosVector) {
         // Deceleration
-        if(this->velocity.x > 0.f) {
+        if (velocity.x > 0.f) {
             // Checking if going over maxVelocity
-            if(this->velocity.x > this->maxVelocity) {
-                this->velocity.x = this->maxVelocity;
+            if (velocity.x > maxVelocity) {
+                velocity.x = maxVelocity;
             }
 
-            this->velocity.x -= deceleration;
+            velocity.x -= deceleration;
             // Stopping the friction before it becomes acceleration
-            if(this->velocity.x < 0.f) {
-                this->velocity.x = 0.f;
+            if (velocity.x < 0.f) {
+                velocity.x = 0.f;
             }
-        } else if (this->velocity.x < 0.f) {
+        } else if (velocity.x < 0.f) {
             // Checking if going over maxVelocity
-            if(this->velocity.x < -this->maxVelocity)
-                this->velocity.x = -this->maxVelocity;
+            if (velocity.x < -maxVelocity)
+                velocity.x = -maxVelocity;
 
-            this->velocity.x += deceleration;
+            velocity.x += deceleration;
             // Stopping the friction before it becomes acceleration
-            if(this->velocity.x > 0.f) {
-                this->velocity.x = 0.f;
+            if (velocity.x > 0.f) {
+                velocity.x = 0.f;
             }
         }
 
-        if(this->velocity.y > 0.f) {
+        if (velocity.y > 0.f) {
             // Checking if going over maxVelocity
-            if(this->velocity.y > this->maxVelocity) {
-                this->velocity.y = this->maxVelocity;
+            if (velocity.y > maxVelocity) {
+                velocity.y = maxVelocity;
             }
 
-            this->velocity.y -= deceleration;
+            velocity.y -= deceleration;
             // Stopping the friction before it becomes acceleration
-            if(this->velocity.y < 0.f) {
-                this->velocity.y = 0.f;
+            if (velocity.y < 0.f) {
+                velocity.y = 0.f;
             }
-        } else if (this->velocity.y < 0.f) {
+        } else if (velocity.y < 0.f) {
             // Checking if going over maxVelocity
-            if(this->velocity.y < -this->maxVelocity)
-                this->velocity.y = -this->maxVelocity;
+            if (velocity.y < -maxVelocity)
+                velocity.y = -maxVelocity;
 
-            this->velocity.y += deceleration;
+            velocity.y += deceleration;
             // Stopping the friction before it becomes acceleration
-            if(this->velocity.y > 0.f) {
-                this->velocity.y = 0.f;
+            if (velocity.y > 0.f) {
+                velocity.y = 0.f;
             }
         }
 
         // Final move
-        this->sprite.move(this->velocity * dt); // uses velocity
+        entityPosVector.x += velocity.x * dt;
+        entityPosVector.y += velocity.y * dt;
+        sprite.move(velocity * dt); // uses velocity
     }
 
-    sf::Vector2f &MovementComponent::getVelocity() {
-        return this->velocity;
-    }
-
-    void MovementComponent::move(const float& dir_x, const float& dir_y, const float &dt) {
+    void MovementComponent::move(const float &dir_x, const float &dir_y) {
         // Acceleration
-        this->velocity.x += this->acceleration * dir_x;
-        this->velocity.y += this->acceleration * dir_y;
+        velocity.x += acceleration * dir_x;
+        velocity.y += acceleration * dir_y;
     }
 }

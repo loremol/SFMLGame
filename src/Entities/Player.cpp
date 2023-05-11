@@ -3,14 +3,10 @@
 //
 
 #include "Player.h"
-#include <cmath>
-#include <utility>
 
-namespace SFMLGame {
+namespace game {
     // 150, 15, 10
-    Player::Player(GameDataRef data, float x, float y) : Entity(std::move(data), 250.f, 15.f, 7.5f,"PlayerSprite") {
-        SFMLGame::FilePaths filePaths;
-        this->setSprite(this->spriteName);
-        this->setPosition(x, y);
+    Player::Player(float x, float y) : Entity(250.f, 15.f, 7.5f, "PlayerSprite") {
+
     }
 }

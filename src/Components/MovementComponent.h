@@ -2,26 +2,26 @@
 // Created by Lorenzo on 23/04/2023.
 //
 
-#ifndef SFMLGAME_MOVEMENTCOMPONENT_HPP
-#define SFMLGAME_MOVEMENTCOMPONENT_HPP
+#ifndef GAME_MOVEMENTCOMPONENT_HPP
+#define GAME_MOVEMENTCOMPONENT_HPP
 
 #include <SFML/Graphics.hpp>
 
-namespace SFMLGame {
+namespace game {
     class MovementComponent {
     public:
-        MovementComponent(sf::Sprite& sprite, float maxVelocity, float acceleration, float deceleration);
+        MovementComponent(const std::string &sprite, const float &maxVelocity, const float &acceleration,
+                          const float &deceleration);
 
         ~MovementComponent() = default;
 
-        void move(const float& dir_x, const float& dir_y, const float& dt);
+        void move(const float &dir_x, const float &dir_y);
 
-        void update(const float &dt);
+        void update(const float &dt, sf::Vector2f &entityPosVector);
 
-        sf::Vector2f &getVelocity();
+        sf::Sprite sprite; // for working with the entity's sprite
 
     private:
-        sf::Sprite& sprite; // for working with the entity's sprite
         float maxVelocity;
         float acceleration;
         float deceleration;
@@ -30,4 +30,4 @@ namespace SFMLGame {
 }
 
 
-#endif //SFMLGAME_MOVEMENTCOMPONENT_HPP
+#endif //GAME_MOVEMENTCOMPONENT_HPP

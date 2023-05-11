@@ -2,15 +2,15 @@
 // Created by Lorenzo on 21/04/2023.
 //
 
-#ifndef SFMLGAME_ASSETMANAGER_HPPP
-#define SFMLGAME_ASSETMANAGER_HPPP
+#ifndef GAME_ASSETMANAGER_HPPP
+#define GAME_ASSETMANAGER_HPPP
 
 #include <map>
 #include <SFML/Graphics.hpp>
 
-namespace SFMLGame {
+namespace game {
     /**
-     * Class responsible of creating std::map that associate names with fonts and textures.
+     * Class responsible of creating std::map that associates names with fonts and textures.
      * It can also return the texture associated with a certain name
      */
     class AssetManager {
@@ -19,9 +19,11 @@ namespace SFMLGame {
 
         ~AssetManager() = default;
 
+        void LoadStateAssets(const int &id);
+
         void LoadTexture(const std::string &name, const std::string &fileName);
 
-        sf::Texture &GetTexture(const std::string &name);
+        const sf::Texture &GetTexture(const std::string &name);
 
         void LoadFont(const std::string &name, const std::string &fileName);
 
@@ -34,4 +36,4 @@ namespace SFMLGame {
 
 }
 
-#endif //SFMLGAME_ASSETMANAGER_HPPP
+#endif //GAME_ASSETMANAGER_HPPP

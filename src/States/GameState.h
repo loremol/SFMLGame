@@ -1,23 +1,17 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
-#ifndef SFMLGAME_GAMESTATE_HPP
-#define SFMLGAME_GAMESTATE_HPP
+#ifndef GAME_GAMESTATE_HPP
+#define GAME_GAMESTATE_HPP
 
 #include "State.h"
 #include <utility>
-#include "../Game.h"
+#include "../Init.h"
 #include "../Entities/Player.h"
 #include "../Definitions.h"
 #include "../Map/World.h"
 
-namespace SFMLGame {
+namespace game {
     class GameState : public State {
     public:
-        explicit GameState(const GameDataRef &dataRef);
-
-        void Init() override;
+        explicit GameState();
 
         void HandleInput(const float &dt) override;
 
@@ -26,12 +20,10 @@ namespace SFMLGame {
         void Draw(float dt) override;
 
     private:
-        GameDataRef data;
         sf::Clock clock;
-        FilePaths filePaths;
         World world;
         Player player;
     };
 }
 
-#endif //SFMLGAME_GAMESTATE_HPP
+#endif //GAME_GAMESTATE_HPP

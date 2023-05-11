@@ -1,16 +1,12 @@
-//
-// Created by Lorenzo on 23/04/2023.
-//
-
-#ifndef SFMLGAME_EXITBUTTON_HPP
-#define SFMLGAME_EXITBUTTON_HPP
+#ifndef GAME_EXITBUTTON_HPP
+#define GAME_EXITBUTTON_HPP
 
 #include "Button.h"
 
-namespace SFMLGame {
+namespace game {
     class ExitButton : public Button {
     public:
-        ExitButton(GameDataRef dataRef, float x, float y, float width, float height, const std::string &text,
+        ExitButton(float x, float y, float width, float height, const std::string &text,
                    const std::string &font);
 
         ~ExitButton() override = default;
@@ -23,4 +19,4 @@ namespace SFMLGame {
 }
 
 
-#endif //SFMLGAME_EXITBUTTON_HPP
+#endif //GAME_EXITBUTTON_HPP

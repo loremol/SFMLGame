@@ -1,18 +1,12 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
+#ifndef GAME_STATE_HPP
+#define GAME_STATE_HPP
 
-#ifndef SFMLGAME_STATE_HPP
-#define SFMLGAME_STATE_HPP
-
-namespace SFMLGame {
+namespace game {
     class State {
     public:
         virtual ~State() = default;
 
-        virtual void Init() = 0;
-
-        virtual void HandleInput(const float& dt) = 0;
+        virtual void HandleInput(const float &dt) = 0;
 
         virtual void Update(float dt) = 0;
 
@@ -25,4 +19,4 @@ namespace SFMLGame {
 }
 
 
-#endif //SFMLGAME_STATE_HPP
+#endif //GAME_STATE_HPP

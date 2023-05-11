@@ -1,22 +1,18 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
-#ifndef SFMLGAME_STATEMACHINE_HPP
-#define SFMLGAME_STATEMACHINE_HPP
+#ifndef GAME_STATEMACHINE_HPP
+#define GAME_STATEMACHINE_HPP
 
 #include <memory>
 #include <stack>
 #include "State.h"
 
-namespace SFMLGame {
+namespace game {
     typedef std::unique_ptr<State> StateRef;
 
-    class StateMachine {
+    class StateManager {
     public:
-        StateMachine() : isReplacing(false), isAdding(false), isRemoving(false) {};
+        StateManager() : isReplacing(false), isAdding(false), isRemoving(false) {};
 
-        ~StateMachine() = default;
+        ~StateManager() = default;
 
         void AddState(StateRef newState, bool isReplacing = true);
 
@@ -36,4 +32,4 @@ namespace SFMLGame {
     };
 }
 
-#endif //SFMLGAME_STATEMACHINE_HPP
+#endif //GAME_STATEMACHINE_HPP

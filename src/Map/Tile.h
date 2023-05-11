@@ -2,24 +2,22 @@
 // Created by Lorenzo on 18/04/2023.
 //
 
-#ifndef SFMLGAME_TILE_HPP
-#define SFMLGAME_TILE_HPP
+#ifndef GAME_TILE_HPP
+#define GAME_TILE_HPP
 
 #include <SFML/Graphics.hpp>
-#include "../Game.h"
+#include "../Init.h"
 
-namespace SFMLGame {
+namespace game {
     class Tile {
     public:
-        Tile(GameDataRef, const std::string &spriteName, sf::Vector2f positionVector);
+        Tile(const std::string &spriteName, sf::Vector2f positionVector);
 
     public:
-        sf::Vector2f pos;
         sf::Texture texture;
         sf::Sprite sprite;
-        GameDataRef data;
     };
 
 }
 
-#endif //SFMLGAME_TILE_HPP
+#endif //GAME_TILE_HPP

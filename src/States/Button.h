@@ -1,21 +1,18 @@
-//
-// Created by Lorenzo on 23/04/2023.
-//
-
-#ifndef SFMLGAME_BUTTON_HPP
-#define SFMLGAME_BUTTON_HPP
+#ifndef GAME_BUTTON_HPP
+#define GAME_BUTTON_HPP
 
 #include <SFML/Graphics.hpp>
-#include "../Game.h"
+#include "../mgr.h"
 
-namespace SFMLGame {
+
+namespace game {
     enum buttonStates {
         BTN_IDLE = 0, BTN_HOVER, BTN_PRESSED
     };
 
     class Button {
     public:
-        Button(GameDataRef dataRef, float x, float y, float width, float height, const std::string &text,
+        Button(float x, float y, float width, float height, const std::string &text,
                const std::string &font);
 
         virtual ~Button() = default;
@@ -23,14 +20,13 @@ namespace SFMLGame {
         virtual void update() = 0;
 
         virtual void render() {
-            this->data->window.draw(this->shape);
-            this->data->window.draw(this->text);
+            mgr::window.draw(shape);
+            mgr::window.draw(text);
         };
 
         virtual bool isPressed();
 
     protected:
-        GameDataRef data;
         sf::RectangleShape shape;
         sf::Font font;
         sf::Text text;
@@ -42,4 +38,4 @@ namespace SFMLGame {
 
 }
 
-#endif //SFMLGAME_BUTTON_HPP
+#endif //GAME_BUTTON_HPP

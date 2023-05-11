@@ -13,7 +13,6 @@ Lorenzo
 
 Bianca
 
-- ✔ risolvere getcwd
 - Compilazione mac
 - Struttura dati mappa
 - A*

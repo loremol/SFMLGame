@@ -1,54 +1,62 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
 #include <iostream>
 #include "AssetManager.h"
+#include "Init.h"
+#include "Definitions.h"
 
-namespace SFMLGame {
-    /**
-     * Loads a texture and stores it in the textures map
-     * @param name Key value to be paired with the texture
-     * @param fileName File path of the texture
-     */
-    void SFMLGame::AssetManager::LoadTexture(const std::string &name, const std::string &fileName) {
+namespace game {
+    void AssetManager::LoadTexture(const std::string &name, const std::string &fileName) {
         sf::Texture texture;
 
         if (texture.loadFromFile(fileName)) {
-            this->textures[name] = texture;
+            textures[name] = texture;
         } else {
             std::cout << "Error loading texture." << std::endl << fileName << std::endl;
         }
     }
 
-    /**
-     *
-     * @param name Name that is paired to a certain texture
-     * @return Texture returned by textures map
-     */
-    sf::Texture &SFMLGame::AssetManager::GetTexture(const std::string &name) {
-        return this->textures.at(name);
+    const sf::Texture &AssetManager::GetTexture(const std::string &name) {
+        try {
+            const sf::Texture &texture = textures.at(name);
+            return texture;
+        } catch (const std::out_of_range &E) {
+            std::cout << E.what() << std::endl << "Texture \"" << name
+                      << "\" not found in AssetManager::textures; out of range." << std::endl;
+            return textures.at("DefaultTexture");
+        }
+
     }
 
-    /**
-     * Loads a texture and stores it in the _fonts map
-     * @param name Key value to be paired with the font
-     * @param fileName File path of the font
-     */
-    void SFMLGame::AssetManager::LoadFont(const std::string &name, const std::string &fileName) {
+    void AssetManager::LoadFont(const std::string &name, const std::string &fileName) {
         sf::Font font;
 
         if (font.loadFromFile(fileName)) {
-            this->fonts[name] = font;
+            fonts[name] = font;
         }
     }
 
-    /**
-     *
-     * @param name Name is paired to a certain font
-     * @return Font returned by fonts map
-     */
-    sf::Font &SFMLGame::AssetManager::GetFont(const std::string &name) {
-        return this->fonts.at(name);
+    sf::Font &AssetManager::GetFont(const std::string &name) {
+        return fonts.at(name);
     }
+
+    void AssetManager::LoadStateAssets(const int &id) {
+        // 0 SplashState
+        // 1 MainMenuState
+        // 2 GameState
+        switch (id) {
+            case 0:
+                LoadTexture("SplashStateBackground", FilePaths::SplashScreenBackgroundPath.make_preferred().string());
+                LoadTexture("DefaultTexture", FilePaths::DefaultTexture.make_preferred().string());
+                break;
+            case 1:
+                LoadFont("MainMenuFont", FilePaths::MainMenuFontPath.make_preferred().string());
+                break;
+            case 2:
+                LoadTexture("Floor", FilePaths::GameFloorSpritePath.make_preferred().string());
+                LoadTexture("PlayerSprite", FilePaths::PlayerSpritePath.make_preferred().string());
+                break;
+            default:
+                std::cout << "Not a valid ID" << std::endl;
+        }
+    }
+
 }

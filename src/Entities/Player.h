@@ -2,26 +2,20 @@
 // Created by Lorenzo on 19/04/2023.
 //
 
-#ifndef SFMLGAME_PLAYER_HPP
-#define SFMLGAME_PLAYER_HPP
+#ifndef GAME_PLAYER_HPP
+#define GAME_PLAYER_HPP
 
 #include <SFML/Graphics.hpp>
-#include "../Game.h"
+#include "../Init.h"
 #include "Entity.h"
 #include "../Definitions.h"
 
-namespace SFMLGame {
+namespace game {
     class Player : public Entity {
     public:
-        Player(GameDataRef data, float x, float y);
-
-    private:
-        std::filesystem::path texturePath;
-        sf::Vector2f velocity = sf::Vector2f(0.f, 0.f);
-        float acceleration = 5.f;
-        float deceleration = 3.f;
+        Player(float x, float y);
     };
 
 }
 
-#endif //SFMLGAME_PLAYER_HPP
+#endif //GAME_PLAYER_HPP

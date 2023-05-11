@@ -3,16 +3,13 @@
 //
 
 #include "Tile.h"
+#include "../mgr.h"
 
-#include <utility>
-
-namespace SFMLGame {
-    Tile::Tile(GameDataRef dataRef, const std::string &spriteName, sf::Vector2f positionVector) : data(
-            std::move(dataRef)), pos(positionVector) {
-        this->texture = this->data->assets.GetTexture(spriteName);
-        this->texture.setSmooth(true);
-        this->sprite.setTexture(this->texture);
-        this->sprite.setTexture(texture);
-        this->sprite.setPosition(positionVector.x, positionVector.y);
+namespace game {
+    Tile::Tile(const std::string &spriteName, sf::Vector2f positionVector) : texture(
+            mgr::assets.GetTexture(spriteName)) {
+        texture.setSmooth(true);
+        sprite.setTexture(texture);
+        sprite.setPosition(positionVector.x, positionVector.y);
     }
 }

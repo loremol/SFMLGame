@@ -1,38 +1,30 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
+#include <iostream>
 #include "GameState.h"
+#include "../mgr.h"
 
-namespace SFMLGame {
-    GameState::GameState(const GameDataRef &dataRef) : data(dataRef), player(dataRef, 64.f*8.f, 64.f*8.f),
-                                                       world(dataRef, sf::Vector2f(64.f, 64.f)) {
 
-    }
-
-    void GameState::Init() {
+namespace game {
+    GameState::GameState() : player(64.f * 8.f, 64.f * 8.f), world(sf::Vector2f(64.f, 64.f)) {
 
     }
 
-    void GameState::HandleInput(const float& dt) {
+    void GameState::HandleInput(const float &dt) {
         sf::Event event{};
-        while (this->data->window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                this->data->window.close();
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-                this->data->window.close();
+        while (mgr::window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+                mgr::window.close();
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            this->player.move(0.f, -1.f, dt); // accelerate up
+            player.move(0.f, -1.f); // accelerate up
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            this->player.move(-1.f, 0.f, dt);
+            player.move(-1.f, 0.f);
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            this->player.move(0.f, 1.f, dt);
+            player.move(0.f, 1.f);
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            this->player.move(1.f, 0.f, dt);
+            player.move(1.f, 0.f);
     }
 
     void GameState::Update(float dt) {
@@ -40,14 +32,15 @@ namespace SFMLGame {
     }
 
     void GameState::Draw(float dt) {
-        this->data->window.clear();
+        mgr::window.clear();
+        std::cout << player.positionVector.x << " " << player.positionVector.y << std::endl;
 
-        for (int i = 0; i < this->world.gridLength; i++) {
-            for (int j = 0; j < this->world.gridLength; j++) {
-                this->data->window.draw(this->world.tiles[i][j]->sprite);
+        for (int i = 0; i < world.gridLength; i++) {
+            for (int j = 0; j < world.gridLength; j++) {
+                mgr::window.draw(world.tiles[i][j]->sprite);
             }
         }
-        this->player.render();
-        this->data->window.display();
+        player.render();
+        mgr::window.display();
     }
 }
