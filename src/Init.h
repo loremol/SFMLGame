@@ -11,18 +11,19 @@
 namespace game {
     class Init {
     public:
-        Init();
+        Init() = default;
+
+        static void window();
 
         ~Init() = default;
 
     private:
-        // used by different states to access GameData
-        sf::VideoMode resolution = sf::VideoMode::getDesktopMode();
-        std::string windowTitle = "Game";
-        bool fullscreen = false;
-        unsigned framerateLimit = 120;
-        bool vsyncEnabled = false;
-        unsigned antialiasingLevel = 0;
+        inline static sf::VideoMode resolution = sf::VideoMode::getDesktopMode();
+        inline static std::string windowTitle = "Game";
+        inline static bool fullscreen = false;
+        inline static unsigned framerateLimit = 120;
+        inline static bool vsyncEnabled = false;
+        inline static unsigned antialiasingLevel = 0;
     };
 }
 

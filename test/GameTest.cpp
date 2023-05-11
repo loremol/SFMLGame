@@ -1,12 +1,10 @@
 #include "gtest/gtest.h"
 #include "../src/Entities/Player.h"
+#include "../src/mgr.h"
+#include "../src/States/SplashState.h"
+#include "../src/GameLoop.h"
 
-using namespace GAME;
+using namespace game;
 
-TEST(Player, Ctor) {
-//    Game::Game game;
-//    Game::Player p(Game::data, 0,0);
-//    EXPECT_EQ(p.getAcceleration(), 5.f);
-//    EXPECT_EQ(p.getDeceleration(), 3.f);
-}
+
 

@@ -6,13 +6,14 @@
 #define GAME_ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
-#include "../Components/MovementComponent.h"
 #include "../Init.h"
+#include "../Definitions.h"
 
 namespace game {
+
     class Entity {
     public:
-        Entity(const float &maxVel, const float &acc, const float &dec, const std::string &spriteName);
+        explicit Entity(unsigned int entityId);
 
         virtual ~Entity() = default;
 
@@ -25,10 +26,33 @@ namespace game {
         sf::Vector2f positionVector;
 
     protected:
-        std::string spriteName;
-        MovementComponent movementComponent;
-    };
+        unsigned int id;
+        sf::Sprite sprite;
 
+        class MovementComponent {
+        public:
+            explicit MovementComponent(Entity *entity);
+
+            ~MovementComponent() = default;
+
+            void move(const float &dir_x, const float &dir_y);
+
+            void update(const float &dt);
+
+        private:
+            float maxVelocity;
+            float acceleration;
+            float deceleration;
+            sf::Vector2f velocity;
+            Entity *const entityPtr;
+        };
+
+        MovementComponent movementComponent;
+    private:
+        enum entityIds : unsigned int {
+            player = 1
+        };
+    };
 }
 
 #endif //GAME_ENTITY_HPP

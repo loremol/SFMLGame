@@ -2,9 +2,11 @@
 #include "mgr.h"
 #include "States/SplashState.h"
 #include "GameLoop.h"
+#include "Init.h"
+
 
 namespace game {
-    Init::Init() {
+    void Init::window() {
         sf::ContextSettings contextSettings;
         std::ifstream fileInputStream("settings.txt", std::ios::in);
         if (fileInputStream.is_open()) {
@@ -23,11 +25,5 @@ namespace game {
             mgr::window.create(resolution, windowTitle, sf::Style::Titlebar | sf::Style::Close,
                                contextSettings);
         }
-        mgr::assets.LoadStateAssets(0);
-        mgr::states.AddState(StateRef(new SplashState()));
-
-        GameLoop::Run();
     }
-
-
 }
