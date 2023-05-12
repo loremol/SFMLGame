@@ -47,7 +47,7 @@ namespace game {
             Entity *const entityPtr;
         };
 
-        MovementComponent movementComponent;
+        MovementComponent movement;
     private:
         enum entityIds : unsigned int {
             player = 1

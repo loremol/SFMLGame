@@ -2,7 +2,7 @@
 #include "../mgr.h"
 
 namespace game {
-    Entity::Entity(unsigned int entityId) : id(entityId), movementComponent(this) {
+    Entity::Entity(unsigned int entityId) : id(entityId), movement(this) {
         switch (entityId) {
             case player:
                 sprite.setTexture(mgr::assets.GetTexture("Player"));
@@ -12,7 +12,7 @@ namespace game {
     }
 
     void Entity::update(const float &dt) {
-        movementComponent.update(dt);
+        movement.update(dt);
     }
 
     void Entity::render() {
@@ -20,7 +20,7 @@ namespace game {
     }
 
     void Entity::move(const float dir_x, const float dir_y) {
-        movementComponent.move(dir_x, dir_y); // sets velocity
+        movement.move(dir_x, dir_y); // sets velocity
     }
 
     Entity::MovementComponent::MovementComponent(Entity *const entity) : entityPtr(entity) {
