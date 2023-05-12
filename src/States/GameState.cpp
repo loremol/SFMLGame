@@ -15,16 +15,23 @@ namespace game {
                 mgr::window.close();
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            player.move(0.f, -1.f); // accelerate up
+            player.move(0.f, -1.f);
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
             player.move(-1.f, 0.f);
+            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                player.flipSpriteLeft();
+        }
+
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             player.move(0.f, 1.f);
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
             player.move(1.f, 0.f);
+            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                player.flipSpriteRight();
+        }
     }
 
     void GameState::Update(float dt) {

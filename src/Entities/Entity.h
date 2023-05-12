@@ -19,6 +19,10 @@ namespace game {
 
         virtual void move(float dir_x, float dir_y);
 
+        virtual void flipSpriteLeft();
+
+        virtual void flipSpriteRight();
+
         virtual void update(const float &dt);
 
         virtual void render();
@@ -27,6 +31,8 @@ namespace game {
 
     protected:
         unsigned int id;
+        bool direction_r = true;
+        bool direction_l = false;
         sf::Sprite sprite;
 
         class MovementComponent {
@@ -51,6 +57,9 @@ namespace game {
     private:
         enum entityIds : unsigned int {
             player = 1
+        };
+        struct entityTextures {
+            inline static std::string player[2] = {"Player"};
         };
     };
 }

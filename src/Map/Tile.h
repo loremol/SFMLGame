@@ -9,13 +9,19 @@
 #include "../Init.h"
 
 namespace game {
+    enum tileIDs : unsigned int {
+        floor = 1
+    };
+
     class Tile {
     public:
-        Tile(const std::string &spriteName, sf::Vector2f positionVector);
+        Tile(const std::string &spriteName, sf::Vector2f position);
 
-    public:
-        sf::Texture texture;
         sf::Sprite sprite;
+        sf::Vector2i position;
+        int textureID;
+        bool isWalkable = true;
+        bool isAnimated = false;
     };
 
 }

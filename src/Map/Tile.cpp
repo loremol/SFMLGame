@@ -6,10 +6,8 @@
 #include "../mgr.h"
 
 namespace game {
-    Tile::Tile(const std::string &spriteName, sf::Vector2f positionVector) : texture(
-            mgr::assets.GetTexture(spriteName)) {
-        texture.setSmooth(true);
-        sprite.setTexture(texture);
+    Tile::Tile(const std::string &spriteName, sf::Vector2f positionVector) {
+        sprite.setTexture(mgr::assets.GetTexture(spriteName));
         sprite.setPosition(positionVector.x, positionVector.y);
     }
 }

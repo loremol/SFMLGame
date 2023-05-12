@@ -1,7 +1,5 @@
 #include <fstream>
 #include "mgr.h"
-#include "States/SplashState.h"
-#include "GameLoop.h"
 #include "Init.h"
 
 
