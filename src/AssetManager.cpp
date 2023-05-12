@@ -52,7 +52,15 @@ namespace game {
                 break;
             case 2:
                 LoadTexture("Floor", FilePaths::GameFloorSpritePath.make_preferred().string());
-                LoadTexture("Player", FilePaths::PlayerSpritePath.make_preferred().string());
+                LoadTexture("PlayerIdle0", FilePaths::PlayerIdle0.make_preferred().string());
+                LoadTexture("PlayerIdle1", FilePaths::PlayerIdle1.make_preferred().string());
+                LoadTexture("PlayerIdle2", FilePaths::PlayerIdle2.make_preferred().string());
+                LoadTexture("PlayerIdle3", FilePaths::PlayerIdle3.make_preferred().string());
+                LoadTexture("PlayerMoving0", FilePaths::PlayerMoving0.make_preferred().string());
+                LoadTexture("PlayerMoving1", FilePaths::PlayerMoving1.make_preferred().string());
+                LoadTexture("PlayerMoving2", FilePaths::PlayerMoving2.make_preferred().string());
+                LoadTexture("PlayerMoving3", FilePaths::PlayerMoving3.make_preferred().string());
+                LoadTexture("PlayerMoving4", FilePaths::PlayerMoving4.make_preferred().string());
                 break;
             default:
                 std::cout << "Not a valid ID" << std::endl;

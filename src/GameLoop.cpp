@@ -1,7 +1,6 @@
 #include "GameLoop.h"
 #include "mgr.h"
 
-
 namespace game {
     void GameLoop::Run() {
         float currentTime = clock.getElapsedTime().asSeconds();

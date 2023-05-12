@@ -31,8 +31,13 @@ namespace game {
 
     protected:
         unsigned int id;
+        unsigned short int numberOfIdleFrames;
+        unsigned short int numberOfMovingFrames;
+        unsigned short int currentIdleFrame = 0;
+        unsigned short int currentMovingFrame = 0;
         bool direction_r = true;
         bool direction_l = false;
+        bool isMoving = false;
         sf::Sprite sprite;
 
         class MovementComponent {
@@ -45,12 +50,19 @@ namespace game {
 
             void update(const float &dt);
 
+            void setMaxVelocity(float x) { maxVelocity = x; }
+
+            void setAcceleration(float x) { acceleration = x; }
+
+            void setDeceleration(float x) { deceleration = x; }
+
         private:
             float maxVelocity;
             float acceleration;
             float deceleration;
             sf::Vector2f velocity;
             Entity *const entityPtr;
+            sf::Clock clock;
         };
 
         MovementComponent movement;
@@ -59,7 +71,9 @@ namespace game {
             player = 1
         };
         struct entityTextures {
-            inline static std::string player[2] = {"Player"};
+            inline static std::string playerIdle[4] = {"PlayerIdle0", "PlayerIdle1", "PlayerIdle2", "PlayerIdle3"};
+            inline static std::string playerMoving[5] = {"PlayerMoving0", "PlayerMoving1", "PlayerMoving2",
+                                                         "PlayerMoving3", "PlayerMoving4"};
         };
     };
 }

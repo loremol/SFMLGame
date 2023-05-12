@@ -4,7 +4,7 @@
 
 
 namespace game {
-    GameState::GameState() : player(64.f * 8.f, 64.f * 8.f), world(sf::Vector2f(64.f, 64.f)) {
+    GameState::GameState() : player(64.f * 2.f, 64.f * 2.f), world(sf::Vector2f(64.f, 64.f)) {
 
     }
 
@@ -40,7 +40,7 @@ namespace game {
 
     void GameState::Draw(float dt) {
         mgr::window.clear();
-        std::cout << player.positionVector.x << " " << player.positionVector.y << std::endl;
+        //std::cout << player.positionVector.x << " " << player.positionVector.y << std::endl;
 
         for (int i = 0; i < world.gridLength; i++) {
             for (int j = 0; j < world.gridLength; j++) {

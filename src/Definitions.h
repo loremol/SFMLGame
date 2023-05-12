@@ -15,10 +15,18 @@ namespace game {
         inline static std::filesystem::path MainMenuFontPath{"./res/font/main_menu.ttf"};
         // Game
         inline static std::filesystem::path GameFloorSpritePath{"./res/sprite/tile/floor_1_64px.png"};
-        inline static std::filesystem::path PlayerSpritePath{"./res/sprite/enemy/skelet_idle_anim_f0.png"};
+        inline static std::filesystem::path PlayerIdle0{"./res/sprite/enemy/skelet_idle_anim_f0.png"};
+        inline static std::filesystem::path PlayerIdle1{"./res/sprite/enemy/skelet_idle_anim_f1.png"};
+        inline static std::filesystem::path PlayerIdle2{"./res/sprite/enemy/skelet_idle_anim_f2.png"};
+        inline static std::filesystem::path PlayerIdle3{"./res/sprite/enemy/skelet_idle_anim_f3.png"};
+
+        inline static std::filesystem::path PlayerMoving0{"./res/sprite/enemy/skelet_run_anim_f0.png"};
+        inline static std::filesystem::path PlayerMoving1{"./res/sprite/enemy/skelet_run_anim_f1.png"};
+        inline static std::filesystem::path PlayerMoving2{"./res/sprite/enemy/skelet_run_anim_f2.png"};
+        inline static std::filesystem::path PlayerMoving3{"./res/sprite/enemy/skelet_run_anim_f3.png"};
+        inline static std::filesystem::path PlayerMoving4{"./res/sprite/enemy/skelet_run_anim_f4.png"};
 
     };
 }
-
 
 #endif //GAME_DEFINITIONS_H

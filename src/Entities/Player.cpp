@@ -1,8 +1,8 @@
 #include "Player.h"
 
 namespace game {
-    // 150, 15, 10
     Player::Player(float x, float y) : Entity(1) {
+        sprite.setPosition(x, y);
         positionVector.x = x;
         positionVector.y = y;
     }

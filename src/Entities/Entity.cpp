@@ -5,8 +5,13 @@ namespace game {
     Entity::Entity(unsigned int entityId) : id(entityId), movement(this) {
         switch (entityId) {
             case player:
-                sprite.setTexture(mgr::assets.GetTexture(entityTextures::player[0]));
-                //sprite.scale(2.f,2.f);
+                sprite.setTexture(mgr::assets.GetTexture(entityTextures::playerIdle[0]));
+                sprite.scale(4.f, 4.f);
+                numberOfIdleFrames = 4;
+                numberOfMovingFrames = 5;
+                movement.setMaxVelocity(110.f);
+                movement.setAcceleration(8.f);
+                movement.setDeceleration(4.f);
                 break;
         }
 
@@ -101,6 +106,42 @@ namespace game {
             // Stopping the friction before it becomes acceleration
             if (velocity.y > 0.f) {
                 velocity.y = 0.f;
+            }
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
+            sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
+            std::abs(velocity.x) > 0 || std::abs(velocity.y) > 0)
+            entityPtr->isMoving = true;
+        else if (velocity.x == 0 && velocity.y == 0)
+            entityPtr->isMoving = false;
+
+        if (clock.getElapsedTime().asSeconds() >= 0.2) {
+            // Moving animation
+            if (entityPtr->isMoving) {
+                entityPtr->currentIdleFrame = -1;
+                anim:
+                entityPtr->currentMovingFrame++;
+                if (entityPtr->currentMovingFrame == entityPtr->numberOfMovingFrames)
+                    entityPtr->currentMovingFrame = 0;
+
+                entityPtr->sprite.setTexture(
+                        mgr::assets.GetTexture(entityTextures::playerMoving[entityPtr->currentMovingFrame]));
+                clock.restart();
+            }
+            // Idle animation
+            if (!entityPtr->isMoving) {
+                if (entityPtr->currentMovingFrame > 0) {
+                    goto anim;
+                }
+                entityPtr->currentMovingFrame = -1;
+                entityPtr->currentIdleFrame++;
+                if (entityPtr->currentIdleFrame == entityPtr->numberOfIdleFrames)
+                    entityPtr->currentIdleFrame = 0;
+
+                entityPtr->sprite.setTexture(
+                        mgr::assets.GetTexture(entityTextures::playerIdle[entityPtr->currentIdleFrame]));
+                clock.restart();
             }
         }
 
