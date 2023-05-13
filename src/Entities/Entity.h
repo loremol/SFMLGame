@@ -29,6 +29,9 @@ namespace game {
 
         sf::Vector2f positionVector;
 
+        sf::Sprite sprite;
+
+
     protected:
         unsigned int id;
         unsigned short int numberOfIdleFrames;
@@ -38,7 +41,6 @@ namespace game {
         bool direction_r = true;
         bool direction_l = false;
         bool isMoving = false;
-        sf::Sprite sprite;
 
         class MovementComponent {
         public:
@@ -56,16 +58,18 @@ namespace game {
 
             void setDeceleration(float x) { deceleration = x; }
 
+            sf::Vector2f velocity;
         private:
             float maxVelocity;
             float acceleration;
             float deceleration;
-            sf::Vector2f velocity;
             Entity *const entityPtr;
             sf::Clock clock;
         };
 
+    public:
         MovementComponent movement;
+
     private:
         enum entityIds : unsigned int {
             player = 1

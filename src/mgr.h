@@ -14,7 +14,12 @@
 namespace game {
     class mgr {
     public:
+        mgr() {
+            view.setViewport(sf::FloatRect(0, 0, 1, 1));
+        }
+
         inline static sf::RenderWindow window;
+        inline static sf::View view;
         inline static StateManager states;
         inline static AssetManager assets;
         inline static InputManager input;

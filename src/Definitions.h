@@ -17,8 +17,6 @@ namespace game {
         inline static std::filesystem::path GameFloorSpritePath{"./res/sprite/tile/floor_1_64px.png"};
         inline static std::filesystem::path PlayerIdle0{"./res/sprite/enemy/skelet_idle_anim_f0.png"};
         inline static std::filesystem::path PlayerIdle1{"./res/sprite/enemy/skelet_idle_anim_f1.png"};
-        inline static std::filesystem::path PlayerIdle2{"./res/sprite/enemy/skelet_idle_anim_f2.png"};
-        inline static std::filesystem::path PlayerIdle3{"./res/sprite/enemy/skelet_idle_anim_f3.png"};
 
         inline static std::filesystem::path PlayerMoving0{"./res/sprite/enemy/skelet_run_anim_f0.png"};
         inline static std::filesystem::path PlayerMoving1{"./res/sprite/enemy/skelet_run_anim_f1.png"};

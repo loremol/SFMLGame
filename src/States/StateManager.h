@@ -16,7 +16,7 @@ namespace game {
 
         void AddState(StateRef newState, bool isReplacing = true);
 
-        void RemoveState();
+//        void RemoveState();
 
         void ProcessStateChanges(); // runs at start of game loop
 

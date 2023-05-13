@@ -15,7 +15,6 @@ namespace game {
     public:
         Player(float x, float y);
     };
-
 }
 
 #endif //GAME_PLAYER_HPP

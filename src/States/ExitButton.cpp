@@ -25,10 +25,10 @@ namespace game {
 
     void ExitButton::update() {
         buttonState = BTN_IDLE;
-        if (mgr::input.isShapeHovered(shape, mgr::window)) {
+        if (mgr::input::isShapeHovered(shape, mgr::window)) {
             buttonState = BTN_HOVER;
         }
-        if (mgr::input.isShapeClicked(shape, sf::Mouse::Button::Left, mgr::window)) {
+        if (mgr::input::isShapeClicked(shape, sf::Mouse::Button::Left, mgr::window)) {
             buttonState = BTN_PRESSED;
         }
 

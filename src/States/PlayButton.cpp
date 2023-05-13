@@ -25,10 +25,10 @@ namespace game {
 
     void PlayButton::update() {
         buttonState = BTN_IDLE;
-        if (mgr::input.isShapeHovered(shape, mgr::window)) {
+        if (InputManager::isShapeHovered(shape, mgr::window)) {
             buttonState = BTN_HOVER;
         }
-        if (mgr::input.isShapeClicked(shape, sf::Mouse::Button::Left, mgr::window)) {
+        if (InputManager::isShapeClicked(shape, sf::Mouse::Button::Left, mgr::window)) {
             buttonState = BTN_PRESSED;
         }
 

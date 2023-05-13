@@ -54,8 +54,6 @@ namespace game {
                 LoadTexture("Floor", FilePaths::GameFloorSpritePath.make_preferred().string());
                 LoadTexture("PlayerIdle0", FilePaths::PlayerIdle0.make_preferred().string());
                 LoadTexture("PlayerIdle1", FilePaths::PlayerIdle1.make_preferred().string());
-                LoadTexture("PlayerIdle2", FilePaths::PlayerIdle2.make_preferred().string());
-                LoadTexture("PlayerIdle3", FilePaths::PlayerIdle3.make_preferred().string());
                 LoadTexture("PlayerMoving0", FilePaths::PlayerMoving0.make_preferred().string());
                 LoadTexture("PlayerMoving1", FilePaths::PlayerMoving1.make_preferred().string());
                 LoadTexture("PlayerMoving2", FilePaths::PlayerMoving2.make_preferred().string());

@@ -8,9 +8,9 @@ namespace game {
         isReplacing = isAskingToReplace;
     }
 
-    void StateManager::RemoveState() {
-        isRemoving = true;
-    }
+//    void StateManager::RemoveState() {
+//        isRemoving = true;
+//    }
 
     void StateManager::ProcessStateChanges() {
         if (isAdding) {

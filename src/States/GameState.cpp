@@ -1,10 +1,15 @@
-#include <iostream>
 #include "GameState.h"
 #include "../mgr.h"
 
 
 namespace game {
     GameState::GameState() : player(64.f * 2.f, 64.f * 2.f), world(sf::Vector2f(64.f, 64.f)) {
+        mgr::view = sf::View(sf::FloatRect(player.positionVector.x - static_cast<float>(mgr::window.getSize().x) / 2.f +
+                                           player.sprite.getGlobalBounds().width / 2,
+                                           player.positionVector.y - static_cast<float>(mgr::window.getSize().y) / 2.f +
+                                           player.sprite.getGlobalBounds().height / 2,
+                                           static_cast<float>(mgr::window.getSize().x),
+                                           static_cast<float>(mgr::window.getSize().y)));
 
     }
 
@@ -34,13 +39,17 @@ namespace game {
         }
     }
 
+
     void GameState::Update(float dt) {
         player.update(dt);
+        mgr::view.move(player.movement.velocity * dt);
+
     }
 
     void GameState::Draw(float dt) {
         mgr::window.clear();
         //std::cout << player.positionVector.x << " " << player.positionVector.y << std::endl;
+
 
         for (int i = 0; i < world.gridLength; i++) {
             for (int j = 0; j < world.gridLength; j++) {
@@ -48,6 +57,8 @@ namespace game {
             }
         }
         player.render();
+
+        mgr::window.setView(mgr::view);
         mgr::window.display();
     }
 }
