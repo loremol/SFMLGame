@@ -1,7 +1,3 @@
-//
-// Created by Lorenzo on 11/05/2023.
-//
-
 #ifndef GAME_MGR_H
 #define GAME_MGR_H
 
@@ -22,10 +18,7 @@ namespace game {
         inline static sf::View view;
         inline static StateManager states;
         inline static AssetManager assets;
-        inline static InputManager input;
-
     };
 }
-
 
 #endif //GAME_MGR_H

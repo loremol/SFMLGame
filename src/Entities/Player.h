@@ -1,7 +1,3 @@
-//
-// Created by Lorenzo on 19/04/2023.
-//
-
 #ifndef GAME_PLAYER_HPP
 #define GAME_PLAYER_HPP
 

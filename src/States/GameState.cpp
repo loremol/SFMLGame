@@ -3,14 +3,14 @@
 
 
 namespace game {
-    GameState::GameState() : player(64.f * 2.f, 64.f * 2.f), world(sf::Vector2f(64.f, 64.f)) {
+    GameState::GameState() : player(64.f * 2.f, 64.f * 2.f) {
         mgr::view = sf::View(sf::FloatRect(player.positionVector.x - static_cast<float>(mgr::window.getSize().x) / 2.f +
                                            player.sprite.getGlobalBounds().width / 2,
                                            player.positionVector.y - static_cast<float>(mgr::window.getSize().y) / 2.f +
                                            player.sprite.getGlobalBounds().height / 2,
                                            static_cast<float>(mgr::window.getSize().x),
                                            static_cast<float>(mgr::window.getSize().y)));
-
+        map.LoadMapFromFile("map.txt");
     }
 
     void GameState::HandleInput(const float &dt) {
@@ -51,9 +51,9 @@ namespace game {
         //std::cout << player.positionVector.x << " " << player.positionVector.y << std::endl;
 
 
-        for (int i = 0; i < world.gridLength; i++) {
-            for (int j = 0; j < world.gridLength; j++) {
-                mgr::window.draw(world.tiles[i][j]->sprite);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                mgr::window.draw(map.tiles[i][j]->sprite);
             }
         }
         player.render();

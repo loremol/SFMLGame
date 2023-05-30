@@ -59,6 +59,7 @@ namespace game {
                 LoadTexture("PlayerMoving2", FilePaths::PlayerMoving2.make_preferred().string());
                 LoadTexture("PlayerMoving3", FilePaths::PlayerMoving3.make_preferred().string());
                 LoadTexture("PlayerMoving4", FilePaths::PlayerMoving4.make_preferred().string());
+                LoadTexture("PlayerMoving5", FilePaths::PlayerMoving5.make_preferred().string());
                 break;
             default:
                 std::cout << "Not a valid ID" << std::endl;

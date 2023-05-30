@@ -23,6 +23,7 @@ namespace game {
         inline static std::filesystem::path PlayerMoving2{"./res/sprite/enemy/skelet_run_anim_f2.png"};
         inline static std::filesystem::path PlayerMoving3{"./res/sprite/enemy/skelet_run_anim_f3.png"};
         inline static std::filesystem::path PlayerMoving4{"./res/sprite/enemy/skelet_run_anim_f4.png"};
+        inline static std::filesystem::path PlayerMoving5{"./res/sprite/enemy/skelet_run_anim_f5.png"};
 
     };
 }

@@ -1,7 +1,3 @@
-//
-// Created by Lorenzo on 19/04/2023.
-//
-
 #ifndef GAME_ENTITY_HPP
 #define GAME_ENTITY_HPP
 
@@ -44,7 +40,7 @@ namespace game {
 
         class MovementComponent {
         public:
-            explicit MovementComponent(Entity *entity);
+            explicit MovementComponent(Entity &entity);
 
             ~MovementComponent() = default;
 
@@ -59,25 +55,39 @@ namespace game {
             void setDeceleration(float x) { deceleration = x; }
 
             sf::Vector2f velocity;
-        private:
             float maxVelocity;
+        private:
             float acceleration;
             float deceleration;
-            Entity *const entityPtr;
+            Entity &entity;
+
+            void decelerate();
+        };
+
+        class AnimationComponent {
+        public:
+            explicit AnimationComponent(Entity &entity) : entity(entity) {}
+
+            void updateSprite();
+
+        private:
             sf::Clock clock;
+            Entity &entity;
+
+            bool checkIfMoving() const;
         };
 
     public:
         MovementComponent movement;
-
+        AnimationComponent animation;
     private:
         enum entityIds : unsigned int {
             player = 1
         };
         struct entityTextures {
             inline static std::string playerIdle[4] = {"PlayerIdle0", "PlayerIdle1", "PlayerIdle2", "PlayerIdle3"};
-            inline static std::string playerMoving[5] = {"PlayerMoving0", "PlayerMoving1", "PlayerMoving2",
-                                                         "PlayerMoving3", "PlayerMoving4"};
+            inline static std::string playerMoving[6] = {"PlayerMoving0", "PlayerMoving1", "PlayerMoving2",
+                                                         "PlayerMoving3", "PlayerMoving4", "PlayerMoving5"};
         };
     };
 }

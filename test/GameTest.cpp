@@ -1,10 +1,11 @@
 #include "gtest/gtest.h"
-#include "../src/Entities/Player.h"
-#include "../src/mgr.h"
-#include "../src/States/SplashState.h"
-#include "../src/GameLoop.h"
+#include "../src/Map/Map.h"
 
 using namespace game;
 
-
+TEST(Map, LoadMapFromFile
+) {
+game::Map map;
+map.LoadMapFromFile("map.txt");
+}
 

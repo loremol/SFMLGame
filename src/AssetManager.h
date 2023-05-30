@@ -1,7 +1,3 @@
-//
-// Created by Lorenzo on 21/04/2023.
-//
-
 #ifndef GAME_ASSETMANAGER_HPPP
 #define GAME_ASSETMANAGER_HPPP
 

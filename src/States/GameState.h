@@ -6,7 +6,7 @@
 #include "../Init.h"
 #include "../Entities/Player.h"
 #include "../Definitions.h"
-#include "../Map/World.h"
+#include "../Map/Map.h"
 
 namespace game {
     class GameState : public State {
@@ -21,7 +21,7 @@ namespace game {
 
     private:
         sf::Clock clock;
-        World world;
+        Map map;
         Player player;
     };
 }

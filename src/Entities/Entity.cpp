@@ -2,13 +2,13 @@
 #include "../mgr.h"
 
 namespace game {
-    Entity::Entity(unsigned int entityId) : id(entityId), movement(this) {
+    Entity::Entity(unsigned int entityId) : id(entityId), movement(*this), animation(*this) {
         switch (entityId) {
             case player:
                 sprite.setTexture(mgr::assets.GetTexture(entityTextures::playerIdle[0]));
                 sprite.scale(4.f, 4.f);
                 numberOfIdleFrames = 2;
-                numberOfMovingFrames = 5;
+                numberOfMovingFrames = 6;
                 movement.setMaxVelocity(110.f);
                 movement.setAcceleration(12.f);
                 movement.setDeceleration(4.f);
@@ -19,6 +19,7 @@ namespace game {
 
     void Entity::update(const float &dt) {
         movement.update(dt);
+        animation.updateSprite();
     }
 
     void Entity::render() {
@@ -51,8 +52,8 @@ namespace game {
     }
 
 
-    Entity::MovementComponent::MovementComponent(Entity *const entity) : entityPtr(entity) {
-        switch (entityPtr->id) {
+    Entity::MovementComponent::MovementComponent(Entity &entity) : entity(entity) {
+        switch (entity.id) {
             case 1:
                 maxVelocity = 250.f;
                 acceleration = 15.f;
@@ -62,7 +63,16 @@ namespace game {
     }
 
     void Entity::MovementComponent::update(const float &dt) {
-        // Deceleration
+        decelerate();
+        // update positionVector
+        entity.positionVector.x += velocity.x * dt;
+        entity.positionVector.y += velocity.y * dt;
+
+        // update sprite's position
+        entity.sprite.move(velocity * dt);
+    }
+
+    void Entity::MovementComponent::decelerate() {// Deceleration
         if (velocity.x > 0.f) {
             // Checking if going over maxVelocity
             if (velocity.x > maxVelocity) {
@@ -108,51 +118,47 @@ namespace game {
                 velocity.y = 0.f;
             }
         }
-
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
-             sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) &&
-            (std::abs(velocity.x) > maxVelocity * 0.1 || std::abs(velocity.y) > maxVelocity * 0.1 ||
-             entityPtr->currentMovingFrame != 0))
-            entityPtr->isMoving = true;
-        else if (velocity.x == 0 && velocity.y == 0)
-            entityPtr->isMoving = false;
-
-        if (clock.getElapsedTime().asSeconds() >= 0.2) {
-            // Moving animation
-            if (entityPtr->isMoving) {
-                entityPtr->sprite.setTexture(
-                        mgr::assets.GetTexture(entityTextures::playerMoving[entityPtr->currentMovingFrame]));
-                entityPtr->currentMovingFrame++;
-                if (entityPtr->currentMovingFrame == entityPtr->numberOfMovingFrames)
-                    entityPtr->currentMovingFrame = 0;
-
-                entityPtr->currentIdleFrame = 0;
-                clock.restart();
-            }
-            // Idle animation
-            if (!entityPtr->isMoving && clock.getElapsedTime().asSeconds() >= 0.3) {
-                entityPtr->sprite.setTexture(
-                        mgr::assets.GetTexture(entityTextures::playerIdle[entityPtr->currentIdleFrame]));
-                entityPtr->currentIdleFrame++;
-                if (entityPtr->currentIdleFrame == entityPtr->numberOfIdleFrames)
-                    entityPtr->currentIdleFrame = 0;
-
-                entityPtr->currentMovingFrame = 0;
-                clock.restart();
-            }
-        }
-
-        // Update positionVector
-        entityPtr->positionVector.x += velocity.x * dt;
-        entityPtr->positionVector.y += velocity.y * dt;
-
-        entityPtr->sprite.move(velocity * dt); // uses velocity
     }
 
     void Entity::MovementComponent::move(const float &dir_x, const float &dir_y) {
         // Acceleration
         velocity.x += acceleration * dir_x;
         velocity.y += acceleration * dir_y;
+    }
+
+    void Entity::AnimationComponent::updateSprite() {
+        entity.isMoving = checkIfMoving();
+
+        if (clock.getElapsedTime().asSeconds() >= 0.2) {
+            // Moving animation
+            if (entity.isMoving || entity.currentMovingFrame != 0) {
+                entity.sprite.setTexture(
+                        mgr::assets.GetTexture(entityTextures::playerMoving[entity.currentMovingFrame]));
+                entity.currentMovingFrame = (entity.currentMovingFrame + 1) % entity.numberOfMovingFrames;
+
+                entity.currentIdleFrame = 0;
+                clock.restart();
+            }
+                // Idle animation
+            else if (!entity.isMoving) {
+                entity.sprite.setTexture(
+                        mgr::assets.GetTexture(entityTextures::playerIdle[entity.currentIdleFrame]));
+                entity.currentIdleFrame = (entity.currentIdleFrame + 1) % entity.numberOfIdleFrames;
+
+                entity.currentMovingFrame = 0;
+                clock.restart();
+            }
+        }
+    }
+
+    bool Entity::AnimationComponent::checkIfMoving() const {
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
+             sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) ||
+            (entity.movement.velocity.x != 0))
+            return true;
+        else if (entity.movement.velocity.x == 0 && entity.movement.velocity.y == 0)
+            return false;
+        return false;
     }
 }
 
