@@ -8,7 +8,7 @@ using namespace game;
 
 int main() {
     Init::window();
-    mgr::assets.LoadStateAssets(0);
+    mgr::assets.loadStateAssets(0);
     mgr::states.AddState(StateRef(new SplashState()));
     GameLoop::Run();
 

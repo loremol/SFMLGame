@@ -9,8 +9,6 @@ namespace game {
         PlayButton(float x, float y, float width, float height, const std::string &text,
                    const std::string &font);
 
-        ~PlayButton() override = default;
-
         void update() override;
     };
 }

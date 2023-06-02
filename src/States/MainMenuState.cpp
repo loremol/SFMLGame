@@ -22,7 +22,11 @@ namespace game {
             }
 
             if (playButton.isPressed()) {
-                mgr::assets.LoadStateAssets(2);
+                try {
+                    mgr::assets.loadStateAssets(2);
+                } catch (std::out_of_range &out_of_range) {
+                    std::cout << out_of_range.what() << std::endl << "Failed to load Game State Assets." << std::endl;
+                }
                 mgr::states.AddState(StateRef(new GameState()), true);
             }
 

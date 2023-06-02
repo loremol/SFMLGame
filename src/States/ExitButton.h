@@ -9,8 +9,6 @@ namespace game {
         ExitButton(float x, float y, float width, float height, const std::string &text,
                    const std::string &font);
 
-        ~ExitButton() override = default;
-
         bool isPressed() override;
 
         void update() override;

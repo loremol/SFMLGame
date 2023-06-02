@@ -5,7 +5,7 @@
 
 namespace game {
     SplashState::SplashState() {
-        background.setTexture(mgr::assets.GetTexture("SplashStateBackground"));
+        background.setTexture(mgr::assets.getTexture("SplashStateBackground"));
     }
 
     void SplashState::HandleInput(const float &dt) {
@@ -19,7 +19,11 @@ namespace game {
 
     void SplashState::Update(float dt) {
         if (clock.getElapsedTime().asSeconds() >= SPLASH_STATE_SHOWTIME) {
-            mgr::assets.LoadStateAssets(1);
+            try {
+                mgr::assets.loadStateAssets(1);
+            } catch (std::out_of_range &out_of_range) {
+                std::cout << out_of_range.what() << std::endl << "Failed to load Main Menu State Assets." << std::endl;
+            }
             mgr::states.AddState(StateRef(new MainMenuState), true);
         }
     }

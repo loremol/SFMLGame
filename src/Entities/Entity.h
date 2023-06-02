@@ -2,49 +2,18 @@
 #define GAME_ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
+#include <utility>
 #include "../Init.h"
 #include "../Definitions.h"
 
 namespace game {
-
     class Entity {
     public:
-        explicit Entity(unsigned int entityId);
-
-        virtual ~Entity() = default;
-
-        virtual void move(float dir_x, float dir_y);
-
-        virtual void flipSpriteLeft();
-
-        virtual void flipSpriteRight();
-
-        virtual void update(const float &dt);
-
-        virtual void render();
-
-        sf::Vector2f positionVector;
-
-        sf::Sprite sprite;
-
-
-    protected:
-        unsigned int id;
-        unsigned short int numberOfIdleFrames;
-        unsigned short int numberOfMovingFrames;
-        unsigned short int currentIdleFrame = 0;
-        unsigned short int currentMovingFrame = 0;
-        bool direction_r = true;
-        bool direction_l = false;
-        bool isMoving = false;
-
-        class MovementComponent {
+        class Movement {
         public:
-            explicit MovementComponent(Entity &entity);
+            explicit Movement(Entity &entity);
 
-            ~MovementComponent() = default;
-
-            void move(const float &dir_x, const float &dir_y);
+            void calcVelocity(const float &dir_x, const float &dir_y);
 
             void update(const float &dt);
 
@@ -54,9 +23,11 @@ namespace game {
 
             void setDeceleration(float x) { deceleration = x; }
 
+            sf::Vector2f &getVelocity() { return velocity; }
+
+        private:
             sf::Vector2f velocity;
             float maxVelocity;
-        private:
             float acceleration;
             float deceleration;
             Entity &entity;
@@ -64,32 +35,89 @@ namespace game {
             void decelerate();
         };
 
-        class AnimationComponent {
+        class Animation {
         public:
-            explicit AnimationComponent(Entity &entity) : entity(entity) {}
+            explicit Animation(Entity &entity) : entity(entity) {}
 
             void updateSprite();
 
+            void loadFrames();
+
+            void addIdleFrameFilename(const std::string &filename) { idleFramesFilenames.push_back(filename); }
+
+            void addMovingFrameFilename(const std::string &filename) { movingFramesFilenames.push_back(filename); }
+
+            void setupIdleFrameIterator();
+
+            sf::Texture &getFirstIdleFrame() { return *idleFrames.begin(); }
+
+            void setupMovingFrameIterator();
+
         private:
+            std::vector<sf::Texture> idleFrames;
+            std::vector<sf::Texture> movingFrames;
+            std::vector<sf::Texture>::iterator idleFrameIterator;
+            std::vector<sf::Texture>::iterator movingFrameIterator;
+
+            std::vector<std::string> idleFramesFilenames;
+            std::vector<std::string> movingFramesFilenames;
+
             sf::Clock clock;
             Entity &entity;
 
-            bool checkIfMoving() const;
+            [[nodiscard]] bool checkIfMoving() const;
+
         };
 
-    public:
-        MovementComponent movement;
-        AnimationComponent animation;
-    private:
-        enum entityIds : unsigned int {
-            player = 1
-        };
-        struct entityTextures {
-            inline static std::string playerIdle[4] = {"PlayerIdle0", "PlayerIdle1", "PlayerIdle2", "PlayerIdle3"};
-            inline static std::string playerMoving[6] = {"PlayerMoving0", "PlayerMoving1", "PlayerMoving2",
-                                                         "PlayerMoving3", "PlayerMoving4", "PlayerMoving5"};
-        };
+        Entity();
+
+        virtual ~Entity() = default;
+
+        virtual void flipSpriteLeft();
+
+        virtual void flipSpriteRight();
+
+        virtual void update(const float &dt);
+
+        virtual void render();
+
+        sf::Vector2f mapPosition;
+
+        sf::Sprite sprite;
+
+        bool isMoving = false;
+
+        unsigned int entityID = 0;
+
+        Movement movement;
+
+        Animation animation;
+    protected:
+        bool direction_r = true;
+        bool direction_l = false;
     };
+
+    class EntityFactory {
+    public:
+        explicit EntityFactory();
+
+        [[nodiscard]] Entity *createEntity(const std::string &entityType, sf::Vector2f position) const;
+
+        void setupEntity(Entity *entity, const std::string &entityType) const;
+
+    private:
+        struct entityParameters {
+            float maxVelocity;
+            float acceleration;
+            float deceleration;
+            std::vector<std::string> idleFramesFilenames;
+            std::vector<std::string> movingFramesFilenames;
+            float textureScaleX;
+            float textureScaleY;
+        };
+        std::map<std::string, entityParameters> params{};
+    };
+
 }
 
 #endif //GAME_ENTITY_HPP

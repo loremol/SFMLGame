@@ -7,18 +7,15 @@
 namespace game {
     class Tile {
     public:
-        Tile(int id, sf::Vector2f position);
+        Tile(int id, sf::Vector2f position, float scale);
 
         sf::Sprite sprite;
-        sf::Vector2i position;
-        int textureID;
-        bool isWalkable = true;
-        bool isAnimated = false;
+
+        bool isWalkable() const;
+
     private:
-        std::string tileAssetNames[2] = {"Floor", "Grass"};
-
+        bool walkable;
     };
-
 }
 
 #endif //GAME_TILE_HPP

@@ -9,11 +9,6 @@ namespace game {
         static void Run();
 
     private:
-        GameLoop() = default;
-
-        ~GameLoop() = default;
-
-
         constexpr static const float dt = 1.0f / 60.0f; // times to update per second
         inline static const sf::Clock clock; // required for handling framerate
     };

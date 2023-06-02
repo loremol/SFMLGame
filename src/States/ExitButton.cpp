@@ -6,7 +6,7 @@ namespace game {
                                                                                       font) {
         shape.setPosition(sf::Vector2f(x, y));
         shape.setSize(sf::Vector2f(width, height));
-        this->font = mgr::assets.GetFont(font);
+        this->font = mgr::assets.getFont(font);
         this->text.setFont(this->font);
         this->text.setString(text);
         this->text.setFillColor(sf::Color::White);

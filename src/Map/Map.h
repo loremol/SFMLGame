@@ -4,21 +4,30 @@
 #include <SFML/Graphics.hpp>
 #include "Tile.h"
 #include "../Definitions.h"
+#include "../Entities/Entity.h"
 #include <vector>
 
 namespace game {
     class Map {
     public:
-        void LoadMapFromFile(const std::string &fileName);
+        explicit Map(const std::string &fileName);
 
-        std::vector<std::vector<Tile *>> tiles;
+        [[nodiscard]] std::vector<std::vector<Tile *>> getTileMatrix() const { return tiles; }
 
-        Map();
+        [[nodiscard]] const std::vector<Entity *> &getEntities() const;
 
-        ~Map() = default;
+        [[nodiscard]] Entity *getPlayerPtr() const { return player; }
+
+        void checkCollisions(float dt);
+
 
     private:
-        float tileResolution = 64.f;
+        std::vector<std::vector<Tile *>> tiles;
+        Entity *player;
+        std::vector<Entity *> entities;
+        EntityFactory entityFactory;
+        float tileResolution = 16.f;
+        float tileScaling = 4.f;
     };
 }
 

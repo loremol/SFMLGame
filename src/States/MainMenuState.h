@@ -15,8 +15,6 @@ namespace game {
     public:
         MainMenuState();
 
-        ~MainMenuState() override = default;
-
         void HandleInput(const float &dt) override;
 
         void Update(float dt) override;

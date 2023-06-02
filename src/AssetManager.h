@@ -6,25 +6,24 @@
 
 namespace game {
     /**
-     * Class responsible of creating std::map that associates names with fonts and textures.
+     * Class responsible of creating std::mapSharedPtr that associates names with fonts and textures.
      * It can also return the texture associated with a certain name
      */
     class AssetManager {
     public:
-        AssetManager() = default;
+        AssetManager();
 
-        ~AssetManager() = default;
+        void loadStateAssets(const int &id);
 
-        void LoadStateAssets(const int &id);
+        void loadTexture(const std::string &name, const std::string &fileName);
 
-        void LoadTexture(const std::string &name, const std::string &fileName);
+        const sf::Texture &getTexture(const std::string &name);
 
-        const sf::Texture &GetTexture(const std::string &name);
+        void loadFont(const std::string &name, const std::string &fileName);
 
-        void LoadFont(const std::string &name, const std::string &fileName);
+        sf::Font &getFont(const std::string &name);
 
-        sf::Font &GetFont(const std::string &name);
-
+        std::map<int, std::string> textureID;
     private:
         std::map<std::string, sf::Texture> textures;
         std::map<std::string, sf::Font> fonts;

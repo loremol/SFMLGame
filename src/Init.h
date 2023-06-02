@@ -11,11 +11,7 @@
 namespace game {
     class Init {
     public:
-        Init() = default;
-
         static void window();
-
-        ~Init() = default;
 
     private:
         inline static sf::VideoMode resolution = sf::VideoMode::getDesktopMode();

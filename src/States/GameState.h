@@ -4,14 +4,13 @@
 #include "State.h"
 #include <utility>
 #include "../Init.h"
-#include "../Entities/Player.h"
 #include "../Definitions.h"
 #include "../Map/Map.h"
 
 namespace game {
     class GameState : public State {
     public:
-        explicit GameState();
+        GameState();
 
         void HandleInput(const float &dt) override;
 
@@ -21,8 +20,11 @@ namespace game {
 
     private:
         sf::Clock clock;
-        Map map;
-        Player player;
+        std::shared_ptr<Map> mapSharedPtr;
+
+        void drawMap();
+
+        void renderEntities() const;
     };
 }
 
